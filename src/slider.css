@@ -211,7 +211,7 @@
   transition: all .3s;
 }
 
-.bg {
+.bg-slider {
   display: none;
   width: 45px;
   height: 220px;

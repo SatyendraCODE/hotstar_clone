@@ -14,9 +14,9 @@ class Slider extends Component {
     return (
       <>
         <section className="slider">
-          <div className='bg prevBg'></div>
+          <div className='bg-slider prevBg'></div>
           <button className="slider__control prev"><i className="fa-solid fa-chevron-left"></i></button>
-          <div className='bg nextBg'></div>
+          <div className='bg-slider'></div>
           <button className="slider__control next"><i className="fa-solid fa-chevron-right"></i></button>
           <Link to='#'className='ms-5 title-slider'>Star Bharat Shows</Link>
           <div className="slider__container" data-multislide="true" data-step="5">

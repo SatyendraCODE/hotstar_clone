@@ -9,10 +9,6 @@ function Login(props) {
   const handleClick = () => {
     setIsVisible(!isVisible);
   };
-  const handleExit = () => {
-    props.noneLogin;
-    setIsVisible(!isVisible);
-  };
   return (
     <>
       <div
