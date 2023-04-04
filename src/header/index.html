@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotstar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        header {
+            background-color: #121926 !important;
+        }
+
+        .line {
+            color: rgba(255, 255, 255, 0.6) !important;
+
+        }
+
+        .header .nav-container {
+            padding: 0 50px;
+            margin: 0 auto;
+            margin-top: 6px;
+            min-height: 66px;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .color-w {
+            color: aliceblue !important;
+        }
+
+        .ml-1 {
+            margin-left: 5px !important;
+        }
+
+        .user-profile .signIn {
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            padding: 13px 0;
+            margin-left: 15px;
+            opacity: 1;
+            font-size: 14px;
+        }
+
+        .subscribe-btn {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            padding: 15px 18px 15px;
+            border-radius: 3px;
+            text-align: center;
+            text-transform: uppercase;
+            background: #1f80e0;
+            border: none;
+            outline: 0;
+            outline-color: transparent;
+            position: relative;
+            outline: none !important;
+            font-size: 12px;
+            margin: 15px 0 15px 20px;
+            padding: 0 12px;
+            letter-spacing: 0.4px;
+            font-weight: 700;
+            height: 24px;
+            line-height: 24px;
+            border-radius: 4px;
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .right-element {
+            margin-left: auto;
+        }
+
+        .search-container .input-open {
+            width: 360px;
+        }
+
+        .search-container input {
+            position: relative;
+            width: 240px;
+            height: 32px;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);;
+            color: rgba(255, 255, 255, 0.6);;
+            font-size: 16px;
+            outline: 0;
+            padding: 0 28px 0 0px;
+            border-radius: 0;
+            background: none;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+            -o-opacity: 1;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <i class="fa-sharp fa-solid fa-bars line navbar-brand"></i>
+                <img class="navbar-brand" src="./disney-hotstar-logo-dark.svg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link color-w" href="#">TV <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link color-w" href="#">Movies</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link  color-w" href="#">Sport</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  color-w" href="#">Disney+</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  color-w" href="#">
+                                <img src="./4aa70ede8904e16b7630300c09219c8e.svg">
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="search-container right-element">
+                            <input class="input-open" type="search" placeholder="Search" aria-label="Search">
+                            <!-- <input class=" form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+                        </div>
+                        <button type="button" class="subscribe-btn right-element btn-sm">Subscribe</button>
+                        <div class="right-element user-profile">
+                            <div role="presentation" class="signIn">LOGIN</div>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+</body>
+
+</html>

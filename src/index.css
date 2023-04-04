@@ -1,0 +1,59 @@
+:root{
+    --whiteTransp: rgba(255, 255, 255, 0.45);
+    --white: white;
+    --bgPrimary:#171f30;
+}
+body{
+    background-color: #121926 !important;
+    font-family: 'Roboto', sans-serif;
+}
+.height-Caro{
+    height: 400px;
+}
+.padding-Caro{
+    padding: 31px 30px 34px;
+}
+.bg-Caro{
+    background-color: #030b17;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+.bg-Caro-main{
+    background-color: #192133 !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+.bgBox-caro{
+    position: relative;
+    top: -250px;
+    height: 600px;
+    width: 580px;
+    background-color: #030b17;
+    box-shadow: 40px 0px 50px 40px #030b17;
+}
+.btn-caro{
+    width:3% !important;
+}
+.btn-caro-icon{
+    /* visibility: hidden ; */
+    transition: 0.2s;
+    font-size: 40px !important;
+}
+.ad-info{
+    width: 210px;
+}
+.carouselContainer{
+    width: 94%;
+    margin: auto;
+}
+.common-caro-left-box{
+    z-index: 100;
+    position: relative;
+    color: var(--white);
+    margin-left: 40px;
+    margin-right: 125px;
+    margin-top: 80px;
+}
+.detail-caro{
+    color: var(--whiteTransp) !important;
+}
