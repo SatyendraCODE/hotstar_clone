@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="header">
         <div className="nav-container">
           <nav className="navbar navbar-expand-lg navbar-light container-fluid">
-            <button className="collepsBtn" onMouseEnter={()=> setAnimationClass('collapse-list-nav-anim')} onMouseLeave={()=>setTimeout(()=>setAnimationClass('collapse-list-nav-anim-1'), 2000) }>
+            <button className="collepsBtn" onMouseEnter={()=> setAnimationClass('collapse-list-nav-anim')} onMouseLeave={()=>setTimeout(()=>setAnimationClass('collapse-list-nav-anim-1'), 1500) }>
               <i className="fa-sharp fa-solid fa-bars line navbar-brand iconCollops"></i>
             </button>
             <div className={`collapse-list-nav ${AnimationClass}`} >

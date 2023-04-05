@@ -39,13 +39,14 @@
     width: 180px;
     position: absolute;
     top: 68px;
-    z-index: 500;
+    z-index: -1;
     /* height: 200px; */
     box-shadow: 0px 0px 10px 5px #00000070;
     background-color: #192133 !important;
     transition: 0.3s;
 }
 .collapse-list-nav-anim{
+    z-index: 500;
     height: 139px;
     transition: 0.2s;
 }

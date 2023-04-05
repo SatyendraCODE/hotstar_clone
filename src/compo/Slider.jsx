@@ -4,12 +4,6 @@ import "./slider.css";
 
 
 class Slider extends Component {
-  componentDidMount() {
-    const script = document.createElement("script");
-    script.src = "./slider.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }
   render() {
     return (
       <>
@@ -18,7 +12,7 @@ class Slider extends Component {
           <button className="slider__control prev"><i className="fa-solid fa-chevron-left"></i></button>
           <div className='bg-slider'></div>
           <button className="slider__control next"><i className="fa-solid fa-chevron-right"></i></button>
-          <Link to='#'className='ms-5 title-slider'>Star Bharat Shows</Link>
+          <Link to='#'className='ms-5 title-slider'>{this.props.title}</Link>
           <div className="slider__container" data-multislide="true" data-step="5">
             <div className="slider__item ms-5">
               <Link to='/' className='imgLink'>

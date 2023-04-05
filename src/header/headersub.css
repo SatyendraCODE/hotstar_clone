@@ -19,11 +19,13 @@
  border-radius: 0 !important;
 }
 .bg-tr{
+    background: transparent !important;
     transform: translate(5px, 35px) !important;
     min-width: 123px !important;
 }
 .bg-tr-a{
-    background-color: var(--BG_COLOR_L1);
+    /* background-color: var(--BG_COLOR_L1); */
+    background: transparent;
     border: 1px solid white;
     color: white;
 }

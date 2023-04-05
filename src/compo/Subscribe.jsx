@@ -307,7 +307,7 @@ const Subscribe = () => {
               <i className={`fa-solid fa-check poi-ab ${!check_mark ? (!check_mark_primium ?"check-mark":"check-mark-hidden") : "check-mark-hidden"}`}></i>
             </button>
           </div>
-          <button className="w-100 btn-con m-0 mb-4">
+          <button className="w-100 btn-con mt-1 mb-4">
             <b>CONTINUE WITH SUPER &nbsp;&nbsp;</b>
             <i
               className="fa-solid fa-chevron-right"
