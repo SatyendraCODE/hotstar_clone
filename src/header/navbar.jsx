@@ -5,18 +5,30 @@ import { Link } from "react-router-dom";
 import Login from "../compo/Login";
 
 const Navbar = () => {
-  const [AnimationClass, setAnimationClass] = useState('');
-  const [displayLogin, setDisplayLogin] = useState('none');
+  const [AnimationClass, setAnimationClass] = useState("");
+  const [displayLogin, setDisplayLogin] = useState("none");
   return (
     <>
       <div className="header">
         <div className="nav-container">
           <nav className="navbar navbar-expand-lg navbar-light container-fluid">
-            <button className="collepsBtn" onMouseEnter={()=> setAnimationClass('collapse-list-nav-anim')} onMouseLeave={()=>setTimeout(()=>setAnimationClass('collapse-list-nav-anim-1'), 1500) }>
+            <button
+              className="collepsBtn"
+              onMouseEnter={() => setAnimationClass("collapse-list-nav-anim")}
+              onMouseLeave={() =>
+                setTimeout(
+                  () => setAnimationClass("collapse-list-nav-anim-1"),
+                  1500
+                )
+              }
+            >
               <i className="fa-sharp fa-solid fa-bars line navbar-brand iconCollops"></i>
             </button>
-            <div className={`collapse-list-nav ${AnimationClass}`} >
-              <div className="row collapse-items-nav" style={{ "paddingTop": "15px"}}>
+            <div className={`collapse-list-nav ${AnimationClass}`}>
+              <div
+                className="row collapse-items-nav"
+                style={{ paddingTop: "15px" }}
+              >
                 <i className="col-4 fab fa-buffer text-center ps-4"></i>
                 <p className="col-8">Channels</p>
               </div>
@@ -30,10 +42,12 @@ const Navbar = () => {
               </div>
             </div>
 
-            <img
-              className="navbar-brand navLogoImg"
-              src="./disney-hotstar-logo-dark.svg"
-            />
+            <Link to="/" className="navbar-brand navLogoImg">
+              <img
+                className=""
+                src="./disney-hotstar-logo-dark.svg"
+              />
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -54,21 +68,130 @@ const Navbar = () => {
                 <li className="nav-item active">
                   <a className="nav-link color-w arncherInList" href="#">
                     TV <span className="sr-only">(current)</span>
+                    <div
+                      className="hover-navbar rounded"
+                      style={{ left: "-13px" }}
+                    >
+                      <ul className="">
+                        <li className="mt-1">
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                      </ul>
+                    </div>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link color-w arncherInList" href="#">
                     Movies
+                    <div
+                      className="hover-navbar rounded"
+                      style={{ left: "0px" }}
+                    >
+                      <ul>
+                        <li className="mt-1">
+                          <Link to="#">Bollywood</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Hollywood</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Tollywood</Link>
+                        </li>
+                      </ul>
+                    </div>
                   </a>
                 </li>
                 <li className="nav-item ">
                   <a className="nav-link  color-w arncherInList" href="#">
                     Sport
+                    <div
+                      className="hover-navbar rounded"
+                      style={{ left: "-6px" }}
+                    >
+                      <ul className="">
+                        <li className="mt-1">
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                      </ul>
+                    </div>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link  color-w arncherInList" href="#">
                     Disney+
+                    <div
+                      className="hover-navbar rounded"
+                      style={{ left: "4px" }}
+                    >
+                      <ul className="">
+                        <li className="mt-1">
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                        <li>
+                          <Link to="#">d=abc</Link>
+                        </li>
+                      </ul>
+                    </div>
                   </a>
                 </li>
                 <li className="nav-item">
@@ -93,12 +216,20 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="right-element">
-                  <Link to="subscribe" type="button" className="subscribe-btn btn-sm">
+                  <Link
+                    to="subscribe"
+                    type="button"
+                    className="subscribe-btn btn-sm"
+                  >
                     Subscribe
                   </Link>
                 </div>
                 <div className="right-element user-profile">
-                  <div role="presentation" className="signIn" onClick={()=>setDisplayLogin('flex')}>
+                  <div
+                    role="presentation"
+                    className="signIn"
+                    onClick={() => setDisplayLogin("flex")}
+                  >
                     LOGIN
                   </div>
                 </div>
@@ -107,7 +238,11 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-      <Login display={displayLogin} noneLogin={()=> setDisplayLogin('none')} flexLogin={()=> setDisplayLogin('flex')}/>
+      <Login
+        display={displayLogin}
+        noneLogin={() => setDisplayLogin("none")}
+        flexLogin={() => setDisplayLogin("flex")}
+      />
     </>
   );
 };

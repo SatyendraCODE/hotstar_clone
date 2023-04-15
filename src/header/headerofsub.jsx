@@ -20,7 +20,7 @@ export default function App() {
   const [showBasic, setShowBasic] = useState(false);
 
   return (
-    <MDBNavbar expand="lg" className="">
+    <MDBNavbar expand="lg" className="bg-sub">
       <MDBContainer className="p-0 pt-3">
         <Link to="/" className="navbar-brand pt-0">
           <svg

@@ -42,7 +42,7 @@ const Carousel = () => {
                   Your one-stop destination for Comedy, Drama, Thrillers &amp;
                   more!
                 </p>
-                <Link to="#" type="button" className="btn btn-outline-primary w-100" data-mdb-ripple-color="dark">Subscribe</Link>
+                <Link to="/subscribe" type="button" className="btn btn-outline-primary w-100" data-mdb-ripple-color="dark">Subscribe</Link>
               </div>
 
               <div className="d-flex align-items-center me-5">

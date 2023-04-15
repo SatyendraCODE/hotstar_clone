@@ -61,7 +61,7 @@
 .navLogoImg{
     margin-right: 0 !important;
     padding: 0;
-    padding-bottom: 15px !important;
+    padding-bottom: 10px !important;
 }
 .kidLogo{
     padding-bottom: 2px !important;
@@ -77,6 +77,7 @@
     cursor: pointer;
     padding: 20px 15px 20px !important;
     line-height: normal;
+    position: relative;
 }
 
 .ml-1 {
@@ -167,4 +168,38 @@
 }
 .form-inline{
     display: flex;
+}
+.hover-navbar{
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top:50px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 5px #00000070;
+    background-color: #192133 !important;
+}
+.hover-navbar ul{
+    padding-left: 0 !important;
+}
+.hover-navbar ul li{
+    list-style: none;
+    /* background-color: #192133 !important; */
+    text-align: center;
+}
+.hover-navbar ul li a{
+    display: inline-block;
+    /* width: 80px; */
+    background-color: #192133 !important;
+    color: var(--whiteTransp);
+    transition: 0.3s;
+    padding: 5px 10px 5px;
+    font-size: 14px;
+    overflow: hidden;
+}
+.hover-navbar ul li a:hover{
+    color: var(--whiteTranspHover);
+}
+.arncherInList:hover>.hover-navbar{
+    display: block;
 }

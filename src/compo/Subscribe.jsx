@@ -83,13 +83,13 @@ const Subscribe = () => {
   };
   return (
     <>
-      <Header />
+      <Header/>
 
-      <div className="animation-container">
+      {/* <div className="animation-container">
         <div className="animation-moving-up"></div>
-      </div>
+      </div> */}
 
-      <div className="container-fluid">
+      <div className="container-fluid h-100 bg-sub pb-3">
         <h4 className="h4-title-sub">
           Subscribe to watch all content on Disney+ Hotstar
         </h4>

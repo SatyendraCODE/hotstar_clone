@@ -1,7 +1,8 @@
-:root{
+:root {
     --whiteTransp: rgba(255, 255, 255, 0.45);
+    --whiteTranspHover: rgba(255, 255, 255, 0.247);
     --white: white;
-    --bgPrimary:#171f30;
+    --bgPrimary: #171f30;
     --BRAND_BLUE: #1f80e0;
     --BRAND_RED: #f15151;
     --BRAND_ORANGE: #db882a;
@@ -26,27 +27,33 @@
     --TEXT_LINK_COLOR: #1f80e0;
     --TEXT_BTN_COLOR: #1f80e0;
 }
-body{
+
+body {
     background-color: #121926 !important;
     font-family: 'Roboto', sans-serif;
 }
-.height-Caro{
+
+.height-Caro {
     height: 400px;
 }
-.padding-Caro{
+
+.padding-Caro {
     padding: 31px 30px 34px;
 }
-.bg-Caro{
+
+.bg-Caro {
     background-color: #030b17;
     border-radius: 10px !important;
     overflow: hidden;
 }
-.bg-Caro-main{
+
+.bg-Caro-main {
     background-color: #192133 !important;
     border-radius: 10px !important;
     overflow: hidden;
 }
-.bgBox-caro{
+
+.bgBox-caro {
     position: relative;
     top: -250px;
     height: 600px;
@@ -54,22 +61,27 @@ body{
     background-color: #030b17;
     box-shadow: 40px 0px 50px 40px #030b17;
 }
-.btn-caro{
-    width:3% !important;
+
+.btn-caro {
+    width: 3% !important;
 }
-.btn-caro-icon{
+
+.btn-caro-icon {
     /* visibility: hidden ; */
     transition: 0.2s;
     font-size: 40px !important;
 }
-.ad-info{
+
+.ad-info {
     width: 210px;
 }
-.carouselContainer{
+
+.carouselContainer {
     width: 94%;
     margin: auto;
 }
-.common-caro-left-box{
+
+.common-caro-left-box {
     z-index: 100;
     position: relative;
     color: var(--white);
@@ -77,6 +89,49 @@ body{
     margin-right: 125px;
     margin-top: 80px;
 }
-.detail-caro{
+
+.detail-caro {
     color: var(--whiteTransp) !important;
+}
+
+/* handel------------ */
+::-webkit-scrollbar-thumb {
+    background: var(--whiteTransp);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* lazy-------------- */
+.fallback-lazy-slider-home {
+    height: 278.250px;
+    width: 100%;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-fallback-lazy-slider-home {
+    height: 100px;
+    width: 100%;
+    /* font-size: 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-fallback-lazy-slider-home i {
+    animation: mymove 1.5s infinite;
+}
+
+.fallback-lazy-slider-home i {
+    animation: mymove 1.5s infinite;
+}
+
+@keyframes mymove {
+    100% {
+        transform: rotate(360deg);
+    }
 }
