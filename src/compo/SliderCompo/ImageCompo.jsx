@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ImageCompo = (props) => {
   return (
     <div className={`slider__item ${props.classN}`}>
-      <Link to="/" className="imgLink">
+      <Link to={props.path} className="imgLink">
         <img src={props.ImgSrc} alt="" width="100%" />
         <div className="cardInfoContainer">
           <h3>{props.title}</h3>

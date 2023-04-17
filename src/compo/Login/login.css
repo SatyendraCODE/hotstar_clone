@@ -111,7 +111,8 @@
     box-shadow: none;
     height: 40px;
     transition: .3s;
-    
+    width: 92%;
+    /* padding-left: 50px; */
 }
 .ph-nu-inp:focus{
     border-bottom: 2px solid var(--BRAND_BLUE);
@@ -119,11 +120,7 @@
 .ph-nu-inp::placeholder{
     color: var(--TEXT_COLOR_L4);
 }
-.phone-nub> input{
-    width: 92%;
 
-    padding-left: 50px;
-}
 .back {
     display: flex;
     justify-content: space-between;
@@ -134,13 +131,11 @@
     position: relative;
     right: -33px;
 }
-.back i{
+.back-icon-login{
     font-size: 20px;
     margin: 5px 0px;
     cursor: pointer;
-    color: var(--TEXT_COLOR_L4);
-}
-.back>i{
+    /* color: var(--TEXT_COLOR_L4); */
     color: var(--BRAND_BLUE);
 }
 .fb input{        

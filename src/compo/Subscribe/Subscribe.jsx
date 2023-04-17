@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Subscribe.css";
-import Header from "../header/headerofsub";
+import Header from "./headerofsub";
 
 const Subscribe = () => {
   const [check_mark, setCheck_mark] = useState(true);

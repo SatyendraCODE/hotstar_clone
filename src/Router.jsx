@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./home";
 import Navbar from "./header/navbar";
-import Subscribe from "./compo/Subscribe";
+import Subscribe from "./compo/Subscribe/Subscribe";
 import Footer from "./footer/index";
+import Series from './compo/Series.jsx'
 
 const Router = createBrowserRouter([
   {
@@ -16,10 +17,18 @@ const Router = createBrowserRouter([
     ),
   },
   {
-    path: "/subscribe",
+    path: "subscribe",
     element: (
       <>
         <Subscribe />
+      </>
+    ),
+  },
+  {
+    path: "series/gumhekisikepyarme",
+    element: (
+      <>
+        <Series />
       </>
     ),
   },

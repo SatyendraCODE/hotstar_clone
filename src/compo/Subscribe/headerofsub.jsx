@@ -15,9 +15,36 @@ import {
   MDBCollapse,
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { useLayoutEffect } from "react";
+import Login from "../Login/Login";
 
 export default function App() {
   const [showBasic, setShowBasic] = useState(false);
+  const [displayLogin, setDisplayLogin] = useState("none");
+  const [isLogin, setisLogin] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies([]);
+
+  useLayoutEffect(()=>{
+    console.log(cookies.login);
+    if(cookies.login){
+      setisLogin(true)
+      console.log("header lay called");
+    }
+  },[])
+
+  function noneLoginModel() {
+    setDisplayLogin("none");
+  }
+
+  const LogoutFun = () => {
+    setisLogin(false);
+    removeCookie("userid");
+    removeCookie("username");
+    removeCookie("login");
+    // setCookie('login', false);
+    console.log(cookies);
+  };
 
   return (
     <MDBNavbar expand="lg" className="bg-sub">
@@ -109,11 +136,61 @@ export default function App() {
               </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
-          <MDBBtn color="primary" href="/Login">
-            Login
-          </MDBBtn>
+          {!isLogin ? (
+            <div
+              className="btn bg-primary text-white"
+              onClick={() => setDisplayLogin("flex")}
+            >
+              Login
+            </div>
+          ) : (
+            <div class="dropdown right-element user-profile ms-3 ">
+              <a
+                class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                href="#"
+                id="navbarDropdownMenuAvatar"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                  class="rounded-circle"
+                  height="35"
+                  alt="Black and White Portrait of a Man"
+                  loading="lazy"
+                />
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end drop-ul-user"
+                aria-labelledby="navbarDropdownMenuAvatar"
+              >
+                <li>
+                  <Link class="dropdown-item drop-a-user" to="profile">
+                    My profile
+                  </Link>
+                </li>
+                <li>
+                  <Link class="dropdown-item drop-a-user" to="watchlist">
+                    Watch list
+                  </Link>
+                </li>
+                <li>
+                  <Link class="dropdown-item drop-a-user" onClick={LogoutFun}>
+                    Logout
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </MDBCollapse>
       </MDBContainer>
+      <Login
+        display={displayLogin}
+        noneLogin={noneLoginModel}
+        isLoginIn={() => setisLogin(true)}
+        flexLogin={() => setDisplayLogin("flex")}
+      />
     </MDBNavbar>
   );
 }

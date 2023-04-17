@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./slider.css";
 import { Suspense } from "react";
+import { Link } from "react-router-dom";
+import { series } from "../../database/db.jsx"
+import "./slider.css";
 
 const ImageCompo = React.lazy(() => import("./ImageCompo"));
 
@@ -36,8 +37,9 @@ class Slider extends Component {
             >
               <ImageCompo
                 classN="ms-5"
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4253/1364253-v-17a2ff74143c"
-                title="title 1"
+                path="/series/gumhekisikepyarme"
+                ImgSrc="./img/serials/gumhe.jpg"
+                title={series[0].name}
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -50,8 +52,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6675/1476675-v-582634b7d3fb"
-                title="title 1"
+                ImgSrc="./img/serials/asikan.jpg"
+                title="Aashiqana S3"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -64,8 +66,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/1992/311992-v"
-                title="title 1"
+                ImgSrc="./img/serials/ispyaarko.jpg"
+                title="is pyaar ko kya naam du?"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -78,8 +80,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/2028/552028-v"
-                title="title 1"
+                ImgSrc="./img/serials/yehhemoho.jpg"
+                title="Ye he mohobaat"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -92,8 +94,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4261/1364261-v-bc200a22b55b"
-                title="title 1"
+                ImgSrc="./img/serials/rjjo.jpg"
+                title="Rjjo"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -106,8 +108,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4327/734327-v"
-                title="title 1"
+                ImgSrc="./img/serials/yehjaduhe.jpg"
+                title="Yeh jadu he jin ka !"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -120,8 +122,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/SHOW/152/152/152-v"
-                title="title 1"
+                ImgSrc="./img/serials/ispyaar_firse.jpg"
+                title="is pyaar ko kiya naam du?...ek baar fir"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -134,8 +136,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/3569/1443569-v-9dd281391af9"
-                title="title 1"
+                ImgSrc="./img/serials/terimeridori.jpg"
+                title="Teri meri duriya"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -148,8 +150,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/anupma.jpg"
+                title="Anupma"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -162,8 +164,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/yehristakiya.jpg"
+                title="Yeh rista kiya khelata he"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -176,8 +178,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/imli.jpg"
+                title="Imli"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -190,8 +192,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/aaikuthe.jpg"
+                title="aai kuthe kiya krte!"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -204,8 +206,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/chasni.jpg"
+                title="Chasni"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -218,8 +220,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/dharedhare.jpg"
+                title="Dhire dhire se"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -232,8 +234,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/faltu.jpg"
+                title="Faltu"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -246,8 +248,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/mahabharat.jpg"
+                title="Mahabharat"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
@@ -260,8 +262,8 @@ class Slider extends Component {
               }
             >
               <ImageCompo
-                ImgSrc="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/4249/1364249-v-2e30b93b7bb5"
-                title="title 1"
+                ImgSrc="./img/serials/mhadev.jpg"
+                title="Devo ke dev Mhadev"
                 category="drama, serial"
                 discription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
               />
