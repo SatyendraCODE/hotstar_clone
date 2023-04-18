@@ -2,6 +2,10 @@ const sliders = [...document.querySelectorAll(".slider__container")];
 const sliderControlPrev = [...document.querySelectorAll(".slider__control.prev")];
 const sliderControlNext = [...document.querySelectorAll(".slider__control.next")];
 
+console.log(sliders);
+console.log(sliderControlPrev);
+console.log(sliderControlNext);
+
 sliders.forEach((slider, i) => {
   let isDragStart = false,
       isDragging = false,

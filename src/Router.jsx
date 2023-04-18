@@ -3,7 +3,8 @@ import Home from "./home";
 import Navbar from "./header/navbar";
 import Subscribe from "./compo/Subscribe/Subscribe";
 import Footer from "./footer/index";
-import Series from './compo/Series.jsx'
+import Show from './compo/Show';
+import Movie from './compo/Movie';
 
 const Router = createBrowserRouter([
   {
@@ -25,12 +26,20 @@ const Router = createBrowserRouter([
     ),
   },
   {
-    path: "series/gumhekisikepyarme",
+    path: "show/:userId",
     element: (
       <>
-        <Series />
+        <Show />
       </>
     ),
   },
+  {
+    path: "movie/:userId",
+    element: (
+      <>
+        <Movie />
+      </>
+    ),
+  }
 ]);
 export default Router;

@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from 'react';
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import { series } from "../../database/db.jsx"
-import "./slider.css";
 
 const ImageCompo = React.lazy(() => import("./ImageCompo"));
 
-class Slider extends Component {
-  render() {
+const Slider_normal = ({title}) => {
+
     return (
-      <>
+        <>
         <section className="slider">
           <div className="bg-slider prevBg"></div>
           <button className="slider__control prev">
@@ -20,7 +19,7 @@ class Slider extends Component {
             <i className="fa-solid fa-chevron-right"></i>
           </button>
           <Link to="#" className="ms-5 title-slider">
-            {this.props.title}
+            {title}
           </Link>
 
           <div
@@ -31,12 +30,12 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
               <ImageCompo
-                classN="ms-5"
+                className="ms-5"
                 path="/series/gumhekisikepyarme"
                 ImgSrc="./img/serials/gumhe.jpg"
                 title={series[0].name}
@@ -47,7 +46,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -61,7 +60,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -75,7 +74,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -89,7 +88,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -103,7 +102,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -117,7 +116,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -131,7 +130,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -145,7 +144,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -159,7 +158,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -173,7 +172,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -187,7 +186,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -201,7 +200,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -215,7 +214,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -229,7 +228,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -243,7 +242,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -257,7 +256,7 @@ class Slider extends Component {
             <Suspense
               fallback={
                 <div className="img-fallback-lazy-slider-home">
-                  <i class="fas fa-arrows-rotate"></i>
+                  <i className="fas fa-arrows-rotate"></i>
                 </div>
               }
             >
@@ -272,7 +271,6 @@ class Slider extends Component {
         </section>
       </>
     );
-  }
-}
+};
 
-export default Slider;
+export default Slider_normal;
