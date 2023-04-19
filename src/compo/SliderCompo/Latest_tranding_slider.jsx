@@ -1,40 +1,39 @@
 import React, { Component } from "react";
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { Latest_Tranding } from "../../database/db.jsx";
+import {responsive} from './Responsive.js'
+import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx"
 
-const ImageCompo = React.lazy(() => import("./ImageCompo"));
+const ImageCompo = React.lazy(() => import("./ImageCompo_test.jsx"));
 
 const Latest_tranding_slider = ({ title }) => {
-  return (
-    <>
-      <section className="slider">
-        <div className="bg-slider prevBg"></div>
-        <button className="slider__control prev">
-          <i className="fa-solid fa-chevron-left"></i>
-        </button>
-        <div className="bg-slider"></div>
-        <button className="slider__control next">
-          <i className="fa-solid fa-chevron-right"></i>
-        </button>
-        <Link to="#" className="ms-5 title-slider">
-          {title}
-        </Link>
 
-        <div
-          className="slider__container ps-5"
-          data-multislide="true"
-          data-step="5"
-        >
-          {Latest_Tranding.map((key, index) => {
-            return (
-              <Suspense
-                key={index}
-                fallback={
-                  <div className="img-fallback-lazy-slider-home">
-                    <i className="fas fa-arrows-rotate"></i>
-                  </div>
-                }
+  return (
+    <div className="slider">
+      <Link to="#" className="ms-5 title-slider">
+        {title}
+      </Link>
+      <Carousel responsive={responsive}
+      customRightArrow={<CustomRightArrow />}
+      customLeftArrow={<CustomLeftArrow />}
+      className="padding-carousel-slider"
+      >
+        {Latest_Tranding.map((key, index) => {
+          return (
+            <Suspense
+              key={index}
+              fallback={
+                <div className="img-fallback-lazy-slider-home">
+                  <i className="fas fa-arrows-rotate"></i>
+                </div>
+              }
+            >
+              <div
+                className="m-1"
+                style={{ "z-index": "-10", position: "relative" }}
               >
                 <ImageCompo
                   path={`/${key.type}/${key.id}`}
@@ -42,13 +41,15 @@ const Latest_tranding_slider = ({ title }) => {
                   title={key.Title}
                   category={key.category}
                   discription={key.discription}
+                  className={""}
                 />
-              </Suspense>
-            );
-          })}
-        </div>
-      </section>
-    </>
+              </div>
+            </Suspense>
+          );
+        })}
+        
+      </Carousel>
+    </div>
   );
 };
 
