@@ -235,24 +235,24 @@
 .bg-slider {
   /* display: none; */
   width: 45px;
-  height: 220px;
+  height: 296px;
   background: rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
-  /* filter: blur(8px); */
+  filter: blur(8px);
   z-index: 20;
   opacity: 1;
   /* box-sizing: border-box; */
 }
 
 .prevBg {
-  transform: translate(-5px, -10px);
+  transform: translate(-5px, -42px);
   box-shadow: 5px 0px 10px 5px rgba(0, 0, 0, 0.4);
   left: 0px;
 }
 
 .nextBg {
-  transform: translate(0px, -10px);
+  transform: translate(0px, -42px);
   box-shadow: -5px 0px 10px 5px rgba(0, 0, 0, 0.4);
   right: 0px;
 }

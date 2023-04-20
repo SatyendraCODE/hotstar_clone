@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useLayoutEffect } from "react";
-import Login from "../Login/Login";
+import Login from "../../compo/Login/Login";
 
 export default function App() {
   const [showBasic, setShowBasic] = useState(false);

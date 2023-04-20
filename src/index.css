@@ -1,8 +1,9 @@
 :root {
     --whiteTransp: rgba(255, 255, 255, 0.45);
-    --whiteTranspHover: rgba(255, 255, 255, 0.247);
+    --whiteTranspHover: rgba(255, 255, 255, 0.327);
     --white: white;
     --bgPrimary: #171f30;
+    --bgSecondary: #171f30ad;
     --BRAND_BLUE: #1f80e0;
     --BRAND_RED: #f15151;
     --BRAND_ORANGE: #db882a;
@@ -27,12 +28,35 @@
     --TEXT_LINK_COLOR: #1f80e0;
     --TEXT_BTN_COLOR: #1f80e0;
 }
+/* utilts############################# start */
+.text-color-p{
+    color: var(--whiteTransp) !important;
+}
+.text-color-p-dark{
+color: var(--bgPrimary);
+}
+.text-color-p-dark-1{
+    color: var(--bgSecondary);
+    }
+.text-color-a{
+    color: var(--whiteTransp);
+}
+.text-color-a:hover{
+    color: rgba(255, 255, 255, 0.63) !important;
+}
+/* utilts #############################  end */
 
 body {
     background-color: #121926 !important;
     font-family: 'Roboto', sans-serif;
 }
 
+/* crouol below nav start ##############################*/
+.btn-outline-primary:hover{
+    color:  var(--TEXT_COLOR_L5) !important;
+    background: var(--TEXT_BTN_COLOR) !important;
+}
+/* crouol below nav end ##############################*/
 .height-Caro {
     height: 400px;
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import Carousel from "./compo/Carousel";
-import Sliders from "./compo/SliderCompo/index"
+import Carousel from "../compo/Carousel";
+import Sliders from "../compo/SliderCompo/index"
 
 const Home = () => {
   

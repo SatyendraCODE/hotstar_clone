@@ -1,6 +1,8 @@
 import { MDBIcon } from "mdb-react-ui-kit";
 import React from "react";
 import { Link } from "react-router-dom";
+import Appel_store from './img/appel_store.png';
+import Play from './img/play.png';
 import "./footer.css";
 
 const index = () => {
@@ -72,7 +74,7 @@ const index = () => {
             <div className="d-flex flex-row-reverse pt-2">
               <Link to="https://play.google.com/store/apps/details?id=in.startv.hotstar&hl=en_IN&gl=US&pli=1">
                 <img
-                  src="./img/play.png"
+                  src={Play}
                   alt="playlogo"
                   width={"200px"}
                   className=""
@@ -80,7 +82,7 @@ const index = () => {
               </Link>
               <Link to="https://apps.apple.com/in/app/hotstar-live-cricket-movies/id934459219">
                 <img
-                  src="./img/appel_store.png"
+                  src={Appel_store}
                   alt="appleLogo"
                   width={"200px"}
                   className="me-2"

@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "./home";
+import Home from "./Pages/home";
 import Navbar from "./header/navbar";
-import Subscribe from "./compo/Subscribe/Subscribe";
+import Subscribe from "./Pages/Subscribe/index";
 import Footer from "./footer/index";
-import Show from './compo/Show';
-import Movie from './compo/Movie';
+import Show from './Pages/Show';
+import Movie from './Pages/MoviePage';
+
+import ScrollToTop from "./compo/ScrollToTop";
 
 const Router = createBrowserRouter([
   {
@@ -29,7 +31,9 @@ const Router = createBrowserRouter([
     path: "show/:userId",
     element: (
       <>
+      <ScrollToTop />
         <Show />
+        <Footer />
       </>
     ),
   },
@@ -37,7 +41,9 @@ const Router = createBrowserRouter([
     path: "movie/:userId",
     element: (
       <>
+      <ScrollToTop />
         <Movie />
+        <Footer />
       </>
     ),
   }
