@@ -17,6 +17,7 @@ const LazyLoaderCompo = () => {
 };
 
 const Index = () => {
+  
   return (
     <>
       <Suspense fallback={<LazyLoaderCompo />}>

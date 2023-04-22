@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Subscribe.css";
 import Header from "./headerofsub";
 
+import { Component } from 'react';
+
 const Subscribe = () => {
   const [check_mark, setCheck_mark] = useState(true);
   const [check_mark_primium, setCheck_mark_primium] = useState(true);
@@ -89,7 +91,7 @@ const Subscribe = () => {
         <div className="animation-moving-up"></div>
       </div> */}
 
-      <div className="container-fluid h-100 bg-sub pb-3">
+      <div className={`container-fluid h-100 bg-sub pb-3`}>
         <h4 className="h4-title-sub">
           Subscribe to watch all content on Disney+ Hotstar
         </h4>
