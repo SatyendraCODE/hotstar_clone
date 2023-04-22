@@ -7,7 +7,7 @@ import { Movies } from "../../database/db.jsx";
 import {responsive} from './Responsive.js'
 import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx"
 
-const ImageCompo = React.lazy(() => import("./ImageCompo_test.jsx"));
+const ImageCompo = React.lazy(() => import("./ImageCompo.jsx"));
 
 const Popular_movies_slider = ({title}) => {
 
@@ -32,7 +32,7 @@ const Popular_movies_slider = ({title}) => {
             >
               <div
                 className="m-1"
-                style={{ "z-index": "-10", position: "relative" }}
+                style={{ zIndex: "-10", position: "relative" }}
               >
                 <ImageCompo
                   path={`/${key.type}/${key.id}`}

@@ -27,8 +27,11 @@ const Subscribe = () => {
   const [scrollVisible, setScrollVisible] = useState(
     "scrolleble-box-mouseLeave-sub"
   );
+const [productName, setProductName] = useState("SUPER");
+const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
 
   const setSuperTheme = () => {
+    setProductName(SUPER);
     setSuperTitle((color) => (color = "highlight-title-box-sub"));
     setSuperContant((color) => (color = "highlight-contant-box-sub"));
     setSuperPrice((color) => (color = "highlight-price-box-sub"));
@@ -43,9 +46,10 @@ const Subscribe = () => {
 
     setCheck_mark((c)=> (c= true));
 
-    console.log("blue");
+    // console.log("blue");
   };
   const setPrimiumTheme1 = () => {
+    setProductName(PRIMIUM);
     setPremiumTitle((color) => (color = "highlight-title-box-sub"));
     setPremiumContant((color) => (color = "highlight-contant-box-sub"));
     setPremiumPrice1((color) => (color = "highlight-price-box-sub"));
@@ -62,9 +66,10 @@ const Subscribe = () => {
     setCheck_mark_primium((c)=> (c= true));
     setCheck_mark((c)=> (c= false));
 
-    console.log("black");
+    // console.log("black");
   };
   const setPrimiumTheme2 = () => {
+    setProductName(PRIMIUM);
     setPremiumTitle((color) => (color = "highlight-title-box-sub"));
     setPremiumContant((color) => (color = "highlight-contant-box-sub"));
     setPremiumPrice2((color) => (color = "highlight-price-box-sub"));
@@ -81,7 +86,7 @@ const Subscribe = () => {
     setCheck_mark_primium((c)=> (c= false));
     setCheck_mark((c)=> (c= false));
 
-    console.log("black");
+    // console.log("black");
   };
   return (
     <>
@@ -310,7 +315,7 @@ const Subscribe = () => {
             </button>
           </div>
           <button className="w-100 btn-con mt-1 mb-4">
-            <b>CONTINUE WITH SUPER &nbsp;&nbsp;</b>
+            <b>{`CONTINUE WITH ${productName}`} &nbsp;&nbsp;</b>
             <i
               className="fa-solid fa-chevron-right"
               style={{ fontSize: "14px" }}

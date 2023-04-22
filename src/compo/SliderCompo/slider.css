@@ -54,7 +54,14 @@
   z-index: 20;
   transition: all .5s;
 }
-
+.hoverRight-slider:hover{
+  transform: translate(13px,0);
+  transition: all .5s;
+}
+.hoverLeft-slider:hover{
+  transform: translate(-13px,0);
+  transition: all .5s;
+}
 .imgLink {
   border-radius: 10px;
   overflow: hidden;

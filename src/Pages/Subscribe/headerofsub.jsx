@@ -26,7 +26,7 @@ export default function App() {
   const [cookies, setCookie, removeCookie] = useCookies([]);
 
   useLayoutEffect(()=>{
-    console.log(cookies.login);
+    // console.log(cookies.login);
     if(cookies.login){
       setisLogin(true)
       console.log("header lay called");

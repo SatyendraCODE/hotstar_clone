@@ -6,9 +6,10 @@ const Home = () => {
   
   return (
     <>
-    
+    <div className="container">
       <Carousel />
       <Sliders/>
+    </div>
       {/* <Normal_slider title={"old slider"}/> */}
     </>
   );

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const ImageCompo = ({className, path, ImgSrc, title, category, discription}) => {
   return (
-      <Link to={path} className={`imgLink ${className}`}>
+    <div className={`slider__item ${className}`}>
+      <Link to={path} className="imgLink">
         <img src={ImgSrc} alt="" width="100%" />
         <div className="cardInfoContainer">
           <h3>{title}</h3>
@@ -14,6 +15,7 @@ const ImageCompo = ({className, path, ImgSrc, title, category, discription}) => 
           </div>
         </div>
       </Link>
+    </div>
   );
 };
 

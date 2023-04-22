@@ -7,7 +7,7 @@ import { Latest_Tranding } from "../../database/db.jsx";
 import {responsive} from './Responsive.js'
 import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx"
 
-const ImageCompo = React.lazy(() => import("./ImageCompo_test.jsx"));
+const ImageCompo = React.lazy(() => import("./ImageCompo.jsx"));
 
 const Latest_tranding_slider = ({ title }) => {
 
@@ -33,7 +33,25 @@ const Latest_tranding_slider = ({ title }) => {
             >
               <div
                 className="m-1"
-                style={{ "z-index": "-10", position: "relative" }}
+                style={{ zIndex: "-10", position: "relative" }} 
+                onClick={(e)=>{
+                  let ListEle =e.currentTarget.parentElement;
+                  let LeftOfListEleOffset = ListEle.offsetLeft;
+                  let LeftOfUlEle = ListEle.parentElement.offsetLeft;
+                  var rt = window.innerWidth - ListEle.getBoundingClientRect().right;
+                  console.log("right cordinate of list", ListEle.getBoundingClientRect().right);
+                  // console.log("left cordinate of list", ListEle.getBoundingClientRect().left);
+                  console.log("window innerLength", window.innerWidth);
+                  console.log("calculation ",rt);
+                  if(LeftOfListEleOffset === 0){
+                    e.currentTarget.firstElementChild.classList.add("hoverRight-slider");
+                    console.log("class added to Left side slider item");
+                  }
+                  if(rt <= 100){
+                    e.currentTarget.firstElementChild.classList.add("hoverLeft-slider");
+                    console.log("class added to right side slider item");
+                  }
+                }}               
               >
                 <ImageCompo
                   path={`/${key.type}/${key.id}`}

@@ -3,7 +3,7 @@ import { MDBIcon } from "mdb-react-ui-kit";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import Login from "../compo/Login/Login";
+import Login from "../Login/Login";
 import { useLayoutEffect } from "react";
 
 const Navbar = () => {
@@ -12,13 +12,15 @@ const Navbar = () => {
   const [displayLogin, setDisplayLogin] = useState("none");
   const [cookies, setCookie, removeCookie] = useCookies([]);
 
-  useLayoutEffect(()=>{
-    console.log(cookies.login);
-    if(cookies.login){
-      setisLogin(true)
+  let isAnimationClassVisible = true;
+
+  useLayoutEffect(() => {
+    // console.log(cookies.login);
+    if (cookies.login) {
+      setisLogin(true);
       console.log("nav lay called");
     }
-  },[])
+  }, []);
   function noneLoginModel() {
     setDisplayLogin("none");
   }
@@ -38,17 +40,34 @@ const Navbar = () => {
           <nav className="navbar navbar-expand-lg navbar-light container-fluid">
             <button
               className="collepsBtn"
-              onMouseEnter={() => setAnimationClass("collapse-list-nav-anim")}
+              onMouseEnter={() => {
+                setAnimationClass("collapse-list-nav-anim");
+                isAnimationClassVisible = true;
+              }}
               onMouseLeave={() =>
-                setTimeout(
-                  () => setAnimationClass("collapse-list-nav-anim-1"),
-                  1500
-                )
+                setTimeout(() => {
+                  if (isAnimationClassVisible) {
+                    setAnimationClass("collapse-list-nav-anim-1");
+                  }
+                }, 1500)
               }
             >
               <i className="fa-sharp fa-solid fa-bars line navbar-brand iconCollops"></i>
             </button>
-            <div className={`collapse-list-nav ${AnimationClass}`}>
+            <div
+              className={`collapse-list-nav ${AnimationClass}`}
+              onMouseEnter={() => {
+                isAnimationClassVisible = false;
+              }}
+              onMouseLeave={() => {
+                isAnimationClassVisible = true;
+                setTimeout(() => {
+                  if (isAnimationClassVisible) {
+                    setAnimationClass("collapse-list-nav-anim-1");
+                  }
+                }, 1500);
+              }}
+            >
               <Link to="channels" className="link-collapse-list-nav">
                 <div
                   className="row collapse-items-nav"
@@ -91,13 +110,15 @@ const Navbar = () => {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav mr-auto">
+              <ul className="navbar-nav mr-auto ms-4">
                 <li className="nav-item active">
-                  <a className="nav-link color-w arncherInList" href="#">
-                    TV <span className="sr-only">(current)</span>
+                  <div>
+                    <Link className="text-color-a arncherInList" to="#">
+                      Shows <span className="sr-only">(current)</span>
+                    </Link>
                     <div
                       className="hover-navbar rounded"
-                      style={{ left: "0px" }}
+                      style={{ left: "0px", display: "none" }}
                     >
                       <ul className="">
                         <li className="mt-1">
@@ -126,14 +147,16 @@ const Navbar = () => {
                         </li>
                       </ul>
                     </div>
-                  </a>
+                  </div>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link color-w arncherInList" href="#">
-                    Movies
+                  <div>
+                    <Link className="text-color-a arncherInList" href="#">
+                      Movies
+                    </Link>
                     <div
                       className="hover-navbar rounded"
-                      style={{ left: "0px" }}
+                      style={{ left: "0px", display: "none" }}
                     >
                       <ul>
                         <li className="mt-1">
@@ -147,87 +170,7 @@ const Navbar = () => {
                         </li>
                       </ul>
                     </div>
-                  </a>
-                </li>
-                <li className="nav-item ">
-                  <a className="nav-link  color-w arncherInList" href="#">
-                    Sport
-                    <div
-                      className="hover-navbar rounded"
-                      style={{ left: "6px" }}
-                    >
-                      <ul className="">
-                        <li className="mt-1">
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link  color-w arncherInList" href="#">
-                    Disney+
-                    <div
-                      className="hover-navbar rounded"
-                      style={{ left: "4px" }}
-                    >
-                      <ul className="">
-                        <li className="mt-1">
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                        <li>
-                          <Link to="#">d=abc</Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link  color-w arncherInList" href="#">
-                    <img
-                      className="kidLogo"
-                      src="./4aa70ede8904e16b7630300c09219c8e.svg"
-                    />
-                  </a>
+                  </div>
                 </li>
               </ul>
               <form className="form-inline my-2 my-lg-0">
@@ -255,7 +198,7 @@ const Navbar = () => {
                   <div className="right-element user-profile">
                     <div
                       role="presentation"
-                      className="signIn"
+                      className="signIn text-color-a"
                       onClick={() => setDisplayLogin("flex")}
                     >
                       LOGIN
