@@ -46,21 +46,42 @@
   padding-bottom: 30px;
   /* border: 1px solid black; */
 }
-.padding-carousel-slider li {
-  transition: all .3s;
-}
-.padding-carousel-slider li:hover {
+/* .padding-carousel-slider li {
+  z-index: 10;
+} */
+/* .padding-carousel-slider li:hover {
   transform: scale(1.3);
   z-index: 20;
-  transition: all .5s;
+  transition: all 1s;
+} */
+.hover-slider{
+  transition: all .3s;
+}
+.hover-slider:hover {
+  transform: scale(1.3);
+  z-index: 20;
+  /* transition: all .5s; */
+  transition: all .6s;
+}
+.hoverRight-slider{
+  transition: all .3s;
 }
 .hoverRight-slider:hover{
-  transform: translate(13px,0);
-  transition: all .5s;
+  /* transform: scale(1.3); */
+  transform: scale(1.3) translate(13px,0);
+  z-index: 20;
+  /* transition: all .5s; */
+  transition: all .6s;
+}
+.hoverLeft-slider{
+  transition: all .3s;
 }
 .hoverLeft-slider:hover{
-  transform: translate(-13px,0);
-  transition: all .5s;
+  /* transform: scale(1.3); */
+  transform: scale(1.3) translate(-13px,0);
+  z-index: 20;
+  /* transition: all .5s; */
+  transition: all .6s;
 }
 .imgLink {
   border-radius: 10px;

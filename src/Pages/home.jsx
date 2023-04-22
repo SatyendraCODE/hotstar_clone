@@ -6,7 +6,7 @@ const Home = () => {
   
   return (
     <>
-    <div className="container">
+    <div className="container-xxl">
       <Carousel />
       <Sliders/>
     </div>
