@@ -1,26 +1,49 @@
-import React, { Component } from "react";
+import React, { useLayoutEffect } from "react";
+import axios from "axios";
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Shows } from "../../database/db.jsx";
+// import { Shows } from "../../database/db.jsx";
 import {responsive} from './Responsive.js'
 import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx"
-
+import { handleHoverAnimation } from "./HandleHoverAnimation.js";
+import { useState } from "react";
+import httpCommon from "../../database/http-common.jsx";
+import { Shows } from "../../database/Type.js";
 const ImageCompo = React.lazy(() => import("./ImageCompo.jsx"));
 
 const Popular_shows_slider = ({title}) => {
+  const [data, setData] = useState([]);
+  let isSliderVisited = true;
+
+  useLayoutEffect(() => {
+    fetchDataFromApi();
+  }, []);
+  const fetchDataFromApi = () => {
+    httpCommon
+      .get(Shows)
+      .then((response) => {
+        // console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error)=> {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="slider">
-      <Link to="#" className="ms-5 title-slider">
+      <Link to="#" className="ms-2 title-slider">
         {title}
       </Link>
-      <Carousel responsive={responsive}
-      customRightArrow={<CustomRightArrow />}
-      customLeftArrow={<CustomLeftArrow />}
-      className="padding-carousel-slider">
-        {Shows.map((key, index) => {
+      <Carousel
+        responsive={responsive}
+        customRightArrow={<CustomRightArrow />}
+        customLeftArrow={<CustomLeftArrow />}
+        className="padding-carousel-slider"
+      >
+        {data.map((key, index) => {
           return (
             <Suspense
               key={index}
@@ -33,6 +56,24 @@ const Popular_shows_slider = ({title}) => {
               <div
                 className="m-1"
                 style={{ zIndex: "-10", position: "relative" }}
+                onMouseEnter={(e) => {
+                  isSliderVisited = false;
+                  handleHoverAnimation(e);
+                }}
+                onMouseLeave={(e) => {
+                  let a = e.currentTarget.parentElement.classList;
+                  // e.currentTarget.parentElement.style.zIndex=10;
+                  isSliderVisited = true;
+                  // e.currentTarget.firstElementChild.classList.remove("hoverLeft-slider");
+                  // e.currentTarget.firstElementChild.classList.remove("hover-slider");
+                  setTimeout(()=>{
+                    if(isSliderVisited){
+                    a.remove("hoverLeft-slider");
+                    a.remove("hoverRight-slider");
+                    a.remove("hover-slider");
+                    }
+                  }, 600)
+                }}
               >
                 <ImageCompo
                   path={`/${key.type}/${key.id}`}

@@ -35,22 +35,23 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="header">
+      <div className="header container-xxl">
         <div className="nav-container">
           <nav className="navbar navbar-expand-lg navbar-light container-fluid">
             <button
               className="collepsBtn"
               onMouseEnter={() => {
                 setAnimationClass("collapse-list-nav-anim");
-                isAnimationClassVisible = true;
+                isAnimationClassVisible = false;
               }}
-              onMouseLeave={() =>
+              onMouseLeave={() => {
+                isAnimationClassVisible = true;
                 setTimeout(() => {
                   if (isAnimationClassVisible) {
                     setAnimationClass("collapse-list-nav-anim-1");
                   }
-                }, 1500)
-              }
+                }, 1500);
+              }}
             >
               <i className="fa-sharp fa-solid fa-bars line navbar-brand iconCollops"></i>
             </button>
@@ -74,19 +75,13 @@ const Navbar = () => {
                   style={{ paddingTop: "15px" }}
                 >
                   <i className="col-4 fab fa-buffer text-center ps-4 pt-1"></i>
-                  <p className="col-8">Channels</p>
+                  <p className="col-8">Shows</p>
                 </div>
               </Link>
               <Link to="languages" className="link-collapse-list-nav">
                 <div className="row collapse-items-nav">
                   <i className="col-4 fas fa-language text-center ps-4 pt-1"></i>
-                  <p className="col-8">Languages</p>
-                </div>
-              </Link>
-              <Link to="genres" className="link-collapse-list-nav">
-                <div className="row collapse-items-nav">
-                  <i className="col-4 fas fa-star-half-stroke text-center ps-4 pt-1"></i>
-                  <p className="col-8">Genres</p>
+                  <p className="col-8">Movies</p>
                 </div>
               </Link>
             </div>

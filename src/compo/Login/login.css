@@ -10,9 +10,9 @@
     left: 0;
 }
 .card-login{
-    width: 460px;
-    height: 440px;
-    padding: 35px 55px;
+    width: 370px;
+    height: 400px;
+    padding: 35px 40px;
     background-color: var(--BG_COLOR_L0) ;
     color:var(--TEXT_COLOR_L0);
     box-shadow: 0px 0 10px 1px black;
@@ -21,21 +21,22 @@
 .close {
     cursor: pointer;
     font-size: 20px;
-    text-align: center;
+    /* text-align: center; */
+    text-align: right;
     display: inline-block;
     width: 34px;
     height: 34px;
     position: relative;
-    right: -360px;
-    top: -22px;
+    right: -277px;
+    top: -26px;
 }
 .close i{
     color: var(--TEXT_COLOR_L4);
 }
-.title-login{
+/* .title-login{
     margin-top: 40px;
     margin-bottom: 30px;
-}
+} */
 .btn-change-login{
     width: 100%;
     font-family: 'Roboto', sans-serif;  
@@ -129,7 +130,7 @@
 }
 .back .reg-close-login{
     position: relative;
-    right: -33px;
+    right: -20px;
 }
 .back-icon-login{
     font-size: 20px;
@@ -143,7 +144,7 @@
     background-color: transparent;
 }
 .fb .sml-text{
-    margin: 46px 0 0 ;
+    /* margin: 46px 0 0 ; */
 }
 .center{
     text-align: center;

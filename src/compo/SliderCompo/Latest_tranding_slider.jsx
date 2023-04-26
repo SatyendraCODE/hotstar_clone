@@ -3,71 +3,38 @@ import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Latest_Tranding } from "../../database/db.jsx";
+// import { Latest_Tranding } from "../../database/db.jsx";
 import { responsive } from "./Responsive.js";
 import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx";
-
+import { handleHoverAnimation } from "./HandleHoverAnimation.js";
+import { useState } from "react";
+import { useLayoutEffect } from "react";
+import axios from "axios";
+import httpCommon from "../../database/http-common.jsx";
+import { Latest_Tranding } from "../../database/Type.js";
 const ImageCompo = React.lazy(() => import("./ImageCompo.jsx"));
 
 const Latest_tranding_slider = ({ title }) => {
+  const [data, setData] = useState([]);
   let isSliderVisited = true;
 
-  const handleHoverAnimation = (e) => {
-    let ListEle = e.currentTarget.parentElement;
-    let UlParentEle = ListEle.parentElement.parentElement;
-    let LeftOfListEleOffset = ListEle.offsetLeft;
-
-    let ListEleLeftCordi = ListEle.getBoundingClientRect().left;
-    let UlParentEleLeftLength = UlParentEle.getBoundingClientRect().right;
-
-
-    let ListEleRightLength =
-      window.innerWidth - ListEle.getBoundingClientRect().right;
-    let UlParentEleRightLength =
-      10 +
-      (window.innerWidth -
-        UlParentEle.getBoundingClientRect().right);
-
-    console.log(UlParentEleRightLength);
-    console.log(ListEleRightLength);
-
-    if (LeftOfListEleOffset === 0) {
-      e.currentTarget.parentElement.classList.add("hoverRight-slider");
-      console.log("class added to Left side slider item");
-    }
-
-    if (window.innerWidth <= 1400) {
-      if (ListEleRightLength < 50) {
-        e.currentTarget.parentElement.classList.add("hoverLeft-slider");
-        console.log("class added to right side slider item");
-      }
-    } else if (LeftOfListEleOffset >= 1134) {
-      if (UlParentEleRightLength > ListEleRightLength) {
-        e.currentTarget.parentElement.classList.add("hoverLeft-slider");
-        console.log("class added to right side slider item");
-      }
-      else{
-        console.log("width",window.innerWidth)
-        e.currentTarget.parentElement.classList.add("hover-slider");
-        console.log("class added to normal slider item");
-        }
-    }
-    else{
-      if (LeftOfListEleOffset === 0) {
-        e.currentTarget.parentElement.classList.add("hoverRight-slider");
-        console.log("class added to Left side slider item");
-      }
-      else{
-      console.log("width",window.innerWidth)
-      e.currentTarget.parentElement.classList.add("hover-slider");
-      console.log("class added to normal slider item");
-      }
-    }
+  useLayoutEffect(() => {
+    fetchDataFromApi();
+  }, []);
+  const fetchDataFromApi = () => {
+    httpCommon
+      .get(Latest_Tranding)
+      .then((response) => {
+        // console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error)=> {
+        console.log(error);
+      });
   };
-
   return (
     <div className="slider">
-      <Link to="#" className="ms-5 title-slider">
+      <Link to="#" className="ms-2 title-slider">
         {title}
       </Link>
       <Carousel
@@ -76,7 +43,7 @@ const Latest_tranding_slider = ({ title }) => {
         customLeftArrow={<CustomLeftArrow />}
         className="padding-carousel-slider"
       >
-        {Latest_Tranding.map((key, index) => {
+        {data.map((key, index) => {
           return (
             <Suspense
               key={index}
@@ -90,24 +57,22 @@ const Latest_tranding_slider = ({ title }) => {
                 className="m-1"
                 style={{ zIndex: "-10", position: "relative" }}
                 onMouseEnter={(e) => {
-                  console.log("on enter");
                   isSliderVisited = false;
                   handleHoverAnimation(e);
                 }}
                 onMouseLeave={(e) => {
-                  console.log("on Leave");
                   let a = e.currentTarget.parentElement.classList;
                   // e.currentTarget.parentElement.style.zIndex=10;
                   isSliderVisited = true;
                   // e.currentTarget.firstElementChild.classList.remove("hoverLeft-slider");
                   // e.currentTarget.firstElementChild.classList.remove("hover-slider");
-                  setTimeout(()=>{
-                    if(isSliderVisited){
-                    a.remove("hoverLeft-slider");
-                    a.remove("hoverRight-slider");
-                    a.remove("hover-slider");
+                  setTimeout(() => {
+                    if (isSliderVisited) {
+                      a.remove("hoverLeft-slider");
+                      a.remove("hoverRight-slider");
+                      a.remove("hover-slider");
                     }
-                  }, 1000)
+                  }, 600);
                 }}
               >
                 <ImageCompo

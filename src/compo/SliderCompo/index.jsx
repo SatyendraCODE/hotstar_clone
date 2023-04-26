@@ -1,8 +1,6 @@
 import React, { Suspense, useEffect, useLayoutEffect, useState } from "react";
 
 import "./slider.css";
-// import Lat_tran_slider from "./Latest_tranding_slider";
-import Slider_crousol from "./Slider_crousol";
 
 const Lat_tran_slider = React.lazy(() => import("./Latest_tranding_slider"));
 const Pop_shows_slider = React.lazy(() => import("./Popular_shows_slider"));

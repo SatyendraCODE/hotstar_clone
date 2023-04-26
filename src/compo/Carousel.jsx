@@ -45,7 +45,7 @@ const Carousel = () => {
                 <Link to="/subscribe" type="button" className="btn btn-outline-primary w-100" data-mdb-ripple-color="dark">Subscribe</Link>
               </div>
 
-              <div className="d-flex align-items-center me-5">
+              <div className="d-flex align-items-center me-5 mt-5 mb-5">
                 <div className="bg-Caro">
                   <img
                     src="https://shifu.hotstarext.com/SOURCE/VOD/cd-2023-03-30/GaslightNSAtrangiReNS_desk-5217f5be-e5e5-475c-9afb-145eba8b0ad7.jpg"
@@ -59,13 +59,13 @@ const Carousel = () => {
           </div>
           <div className="carousel-item bg-Caro">
             <div className="row height-Caro ">
-              <div className="col-5 ">
+              <div className="col-5 d-flex align-items-center justify-content-center h-100">
                 <div className="common-caro-left-box">
                     <h3>Anupama</h3>
                     <p className="detail-caro">Hindi - Romance - 2901</p>
                     <p className="detail-caro">sasdfdsf asdf sd fs fdsf sf s fs fdsfdsf sdfsdf sf sdf ds ds adsfsadf s</p>
                 </div>
-                <div className="bgBox-caro"></div>
+                {/* <div className="bgBox-caro"></div> */}
               </div>
               <div className="col-7">
                 <img
@@ -78,13 +78,13 @@ const Carousel = () => {
           </div>
           <div className="carousel-item bg-Caro">
             <div className="row height-Caro ">
-              <div className="col-5">
+              <div className="col-5 d-flex align-items-center justify-content-center h-100">
                 <div className="common-caro-left-box">
                     <h3>Anupama</h3>
                     <p className="detail-caro">Hindi - Romance - 2901</p>
                     <p className="detail-caro">sasdfdsf asdf sd fs fdsf sf s fs fdsfdsf sdfsdf sf sdf ds ds adsfsadf s</p>
                 </div>
-                <div className="bgBox-caro"></div>
+                {/* <div className="bgBox-caro"></div> */}
               </div>
               <div className="col-7">
                 <img
@@ -97,13 +97,13 @@ const Carousel = () => {
           </div>
           <div className="carousel-item bg-Caro">
             <div className="row height-Caro ">
-              <div className="col-5">
+              <div className="col-5 d-flex align-items-center justify-content-center h-100">
                 <div className="common-caro-left-box">
                     <h3>Anupama</h3>
                     <p className="detail-caro">Hindi - Romance - 2901</p>
                     <p className="detail-caro">sasdfdsf asdf sd fs fdsf sf s fs fdsfdsf sdfsdf sf sdf ds ds adsfsadf s</p>
                 </div>
-                <div className="bgBox-caro"></div>
+                {/* <div className="bgBox-caro"></div> */}
               </div>
               <div className="col-7">
                 <img
@@ -116,13 +116,13 @@ const Carousel = () => {
           </div>
           <div className="carousel-item bg-Caro">
             <div className="row height-Caro ">
-              <div className="col-5">
+              <div className="col-5 d-flex align-items-center justify-content-center h-100">
                 <div className="common-caro-left-box">
                     <h3>Anupama</h3>
                     <p className="detail-caro">Hindi - Romance - 2901</p>
                     <p className="detail-caro">sasdfdsf asdf sd fs fdsf sf s fs fdsfdsf sdfsdf sf sdf ds ds adsfsadf s</p>
                 </div>
-                <div className="bgBox-caro"></div>
+                {/* <div className="bgBox-caro"></div> */}
               </div>
               <div className="col-7">
                 <img

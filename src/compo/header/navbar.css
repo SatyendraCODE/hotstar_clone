@@ -4,7 +4,7 @@
 }
 .header {
     background-color: #121926 !important;
-    padding: 0 50px;
+    /* padding: 0 50px; */
     margin-top: 5px;
 }
 
@@ -49,7 +49,7 @@
 }
 .collapse-list-nav-anim{
     z-index: 500;
-    height: 139px;
+    height: 100px;
     transition: 0.2s;
 }
 .collapse-list-nav-anim-1{

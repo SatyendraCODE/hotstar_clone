@@ -88,7 +88,7 @@ function Login(props) {
                 <i className="fa-solid fa-xmark"></i>
               </div>
             </div>
-            <h5 className="title-login">Login to continue</h5>
+            <h5 className="title-login mt-2">Login to continue</h5>
             {/* if mobile number present - start */}
             {isPasswordInpVisible ? (
               <>
@@ -155,7 +155,7 @@ function Login(props) {
                 <i className="fa-solid fa-xmark"></i>
               </div>
             </div>
-            <h5 className="sml-text">Have a Facebook/Email account?</h5>
+            <h5 className="sml-text mt-1">Have a Facebook/Email account?</h5>
             <div className="center">
               <input
                 type="text"

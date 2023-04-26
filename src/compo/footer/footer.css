@@ -1,15 +1,23 @@
-.title-footer{
+.title-footer {
     font-size: 16px;
     font-weight: 500;
     color: var(--whiteTransp);
 }
-.text-footer{
+
+.text-footer {
     color: var(--whiteTranspHover);
     padding: 0;
     padding-bottom: 10px;
-    
+
 }
-.icon-footer{
+
+.icon-footer {
     font-size: 25px;
     padding-right: 20px;
+}
+
+@media only screen and (max-width: 650px) {
+    /* #connectWithUs {
+        display: none;
+    } */
 }
