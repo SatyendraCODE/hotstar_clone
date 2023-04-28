@@ -1,7 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { Movies } from "../database/db";
 import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
+import httpCommon from "../../database/http-common.jsx";
+import { Movies, Shows } from "../../database/Type.js";
 
 const initial_val = {
   id: "none",
@@ -18,18 +19,24 @@ const initial_val = {
   promo_url: "",
 };
 
-const MoviePage = () => {
+const Movie = () => {
   const [data, setData] = useState(initial_val);
   const { userId } = useParams();
 
   useLayoutEffect(() => {
-    fetchData();
+    fetchDataFromApi();
   }, []);
 
-  const fetchData = async () => {
-    let fetchData = Movies.filter((key, index) => key.id == userId);
-    setData(...fetchData);
-    // console.log(userId);
+  const fetchDataFromApi = async () => {
+    await httpCommon
+      .get(`${Movies}/${userId}`)
+      .then((response) => {
+        // console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -38,7 +45,7 @@ const MoviePage = () => {
         <section>
           <div
             className="position-absolute container p-0 "
-            style={{ height: "100vh", overflow: "hidden" }}
+            style={{ height: "550px", overflow: "hidden" }}
           >
             <img
               src={data.largeImgSrc}
@@ -48,9 +55,12 @@ const MoviePage = () => {
           </div>
           <div
             className="row justify-content-between position-relative"
-            style={{ height: "100vh", zIndex: 20 }}
+            style={{ height: "550px", zIndex: 20 }}
           >
-            <div className="col-5 d-flex align-items-end p-4">
+            <div
+              className="d-flex align-items-end p-2"
+              style={{ width: "450px" }}
+            >
               <div
                 className="text-color-p p-3 rounded"
                 style={{
@@ -86,32 +96,42 @@ const MoviePage = () => {
                   <span>{data.category[3]}</span>
                 </p>
                 <div className="row">
+                  <div className="col-10 mb-3">
+                    <Link
+                      to="/subscribe"
+                      className="ripple ripple-surface btn btn-dark w-100 p-3"
+                      style={{ fontSize: "14px" }}
+                    >
+                      <MDBIcon fas icon="play" />
+                      &nbsp;&nbsp;
+                      <span> Subscribe to Watch Latest</span>
+                    </Link>
+                  </div>
                   <div className="col-10">
                     <Link
                       className="ripple ripple-surface btn btn-light w-100 text-dark p-3 ps-1 pe-1"
                       style={{ fontSize: "14px" }}
                     >
                       <MDBIcon fas icon="play" />
-                      &nbsp;&nbsp; Watch Now
+                      &nbsp;&nbsp; Watch Latest Free Episode &nbsp;
+                      <span
+                        className="text-color-p-dark-1"
+                        style={{ "text-transform": "none" }}
+                      >
+                        {" "}
+                        18-Apr
+                      </span>
                     </Link>
                   </div>
                   <div className="col-2 text-center p-0">
                     <Link
-                      className="ripple ripple-surface btn btn-light"
+                      className="ripple ripple-surface btn btn-light ps-3 pe-3"
                       style={{ fontSize: "24px" }}
                     >
                       <MDBIcon fas icon="plus" />
                     </Link>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-2 d-flex align-items-end justify-content-center p-4">
-              <div className=" text-center" style={{}}>
-                <Link to="#" className="text-color-a">
-                  WATCH AGAIN <span style={{ fontSize: "20px" }}>| </span>
-                  <MDBIcon fas icon="redo-alt" />
-                </Link>
               </div>
             </div>
           </div>
@@ -121,10 +141,21 @@ const MoviePage = () => {
             className="d-flex justify-content-center align-items-center"
             style={{ height: "800px" }}
           >
-            <div>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                "justify-content": "center",
+                "align-items": "center",
+              }}
+            >
               <iframe
-                width="885"
-                height="498"
+                style={{
+                  width: "600px",
+                  "min-height": "289px",
+                  "min-width": "339px",
+                }}
                 src={`https://www.youtube.com/embed/${data.url}`}
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -138,4 +169,4 @@ const MoviePage = () => {
   );
 };
 
-export default MoviePage;
+export default Movie;

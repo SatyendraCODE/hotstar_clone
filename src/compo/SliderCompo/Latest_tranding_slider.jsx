@@ -62,10 +62,7 @@ const Latest_tranding_slider = ({ title }) => {
                 }}
                 onMouseLeave={(e) => {
                   let a = e.currentTarget.parentElement.classList;
-                  // e.currentTarget.parentElement.style.zIndex=10;
                   isSliderVisited = true;
-                  // e.currentTarget.firstElementChild.classList.remove("hoverLeft-slider");
-                  // e.currentTarget.firstElementChild.classList.remove("hover-slider");
                   setTimeout(() => {
                     if (isSliderVisited) {
                       a.remove("hoverLeft-slider");
@@ -77,7 +74,7 @@ const Latest_tranding_slider = ({ title }) => {
               >
                 <ImageCompo
                   path={`/${key.type}/${key.id}`}
-                  ImgSrc={key.imgSrc}
+                  imgSrc={key.imgSrc}
                   title={key.Title}
                   category={key.category}
                   discription={key.discription}

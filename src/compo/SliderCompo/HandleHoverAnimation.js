@@ -15,6 +15,7 @@ export const handleHoverAnimation = (e) => {
         UlParentEle.getBoundingClientRect().right);    
 
     if (window.innerWidth <= 1400) {
+      // console.log("in < 1400 : ",window.innerWidth);
       if (LeftOfListEleOffset === 0) {
         e.currentTarget.parentElement.classList.add("hoverRight-slider");
         // console.log("class added to Left side slider item");
@@ -27,6 +28,10 @@ export const handleHoverAnimation = (e) => {
         e.currentTarget.parentElement.classList.add("hoverLeft-slider");
         // console.log("class added to right side slider item");
       }
+      else{
+        e.currentTarget.parentElement.classList.add("hover-slider");
+        // console.log("class added to normal slider item");
+        }
     } else if (LeftOfListEleOffset >= 1134) {
       if (UlParentEleRightLength > ListEleRightLength) {
         e.currentTarget.parentElement.classList.add("hoverLeft-slider");

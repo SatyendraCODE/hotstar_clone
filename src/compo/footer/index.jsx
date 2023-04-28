@@ -8,7 +8,7 @@ import "./footer.css";
 const index = () => {
   return (
     <>
-      <div className="container mt-5">
+      <div className="container-xxl ps-5 mt-5">
         <div className="row justify-content-center">
           <div className="col-5 col-md-3">
             <p className="title-footer">Company</p>

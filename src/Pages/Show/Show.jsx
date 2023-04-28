@@ -1,7 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { Shows } from "../database/db";
 import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
+import httpCommon from "../../database/http-common.jsx";
+import { Shows } from "../../database/Type.js";
 
 const initial_val = {
   id: "none",
@@ -23,22 +24,28 @@ const Show = () => {
   const { userId } = useParams();
 
   useLayoutEffect(() => {
-    fetchData();
+    fetchDataFromApi();
   }, []);
 
-  const fetchData = async () => {
-    let fetchData = Shows.filter((key, index) => key.id == userId);
-    setData(...fetchData);
-    // console.log(userId);
+  const fetchDataFromApi = async () => {
+    await httpCommon
+      .get(`${Shows}/${userId}`)
+      .then((response) => {
+        // console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <>
       <div className="container">
         <section>
-        <div
+          <div
             className="position-absolute container p-0 "
-            style={{ height: "100vh", overflow: "hidden" }}
+            style={{ height: "550px", overflow: "hidden" }}
           >
             <img
               src={data.largeImgSrc}
@@ -48,9 +55,12 @@ const Show = () => {
           </div>
           <div
             className="row justify-content-between position-relative"
-            style={{ height: "100vh", zIndex: 20 }}
+            style={{ height: "550px", zIndex: 20 }}
           >
-            <div className="col-5 d-flex align-items-end p-4">
+            <div
+              className="d-flex align-items-end p-2"
+              style={{ width: "450px" }}
+            >
               <div
                 className="text-color-p p-3 rounded"
                 style={{
@@ -60,7 +70,11 @@ const Show = () => {
                 }}
               >
                 <div>
-                  <img src={data.logoSrc} className="mb-3 img-fluid" alt="logo" />
+                  <img
+                    src={data.logoSrc}
+                    className="mb-3 img-fluid"
+                    alt="logo"
+                  />
                   <div className="mb-3">
                     <span>
                       2023 · Hindi ·
@@ -111,21 +125,13 @@ const Show = () => {
                   </div>
                   <div className="col-2 text-center p-0">
                     <Link
-                      className="ripple ripple-surface btn btn-light"
+                      className="ripple ripple-surface btn btn-light ps-3 pe-3"
                       style={{ fontSize: "24px" }}
                     >
                       <MDBIcon fas icon="plus" />
                     </Link>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-2 d-flex align-items-end justify-content-center p-4">
-              <div className=" text-center" style={{}}>
-                <Link to="#" className="text-color-a">
-                  WATCH AGAIN <span style={{ fontSize: "20px" }}>| </span>
-                  <MDBIcon fas icon="redo-alt" />
-                </Link>
               </div>
             </div>
           </div>
@@ -135,10 +141,21 @@ const Show = () => {
             className="d-flex justify-content-center align-items-center"
             style={{ height: "800px" }}
           >
-            <div>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                "justify-content": "center",
+                "align-items": "center",
+              }}
+            >
               <iframe
-                width="885"
-                height="498"
+                style={{
+                  width: "600px",
+                  "min-height": "289px",
+                  "min-width": "339px",
+                }}
                 src={`https://www.youtube.com/embed/${data.url}`}
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

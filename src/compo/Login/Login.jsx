@@ -20,12 +20,12 @@ function Login(props) {
     )
       .then((res) => res.json())
       .then((response) => {
-        if (response.Code == 1) {
+        if (response.Code === 1) {
           // alert("success")
           setCookie("userid", response.Data[0].id);
           setCookie("username", response.Data[0].username);
           // console.log(cookies)
-          if (response.Data[0].role_id == 1) {
+          if (response.Data[0].role_id === 1) {
             navigate("/admin");
           } else {
             // navigate("/");

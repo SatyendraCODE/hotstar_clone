@@ -62,14 +62,6 @@ body {
     /* background-repeat: no-repeat;
   background-size: auto; */
 }
-@media only screen and (max-width: 1180px){
-    #carouselExampleControls{
-        display: none;
-    }
-    #subscribePage{
-        display: block;
-    }
-}
 /* crouol below nav end ##############################*/
 .height-Caro {
     height: 350px;
@@ -171,5 +163,14 @@ body {
 @keyframes mymove {
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 1180px){
+    #carouselExampleControls{
+        display: none;
+    }
+    #subscribePage{
+        display: block;
     }
 }

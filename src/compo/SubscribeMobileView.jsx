@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SubscribeMobileView = () => {
   return (
-    <div id="subscribePage" className="p-2">
+    <div id="subscribePage" className="p-2 rounded">
       <div className="row justify-content-around">
         <div className="col-12 col-md-4 d-flex align-items-center justify-content-center">
           <div

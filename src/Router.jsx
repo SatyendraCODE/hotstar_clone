@@ -1,10 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./Pages/home";
-import Navbar from "./compo/header/navbar";
+import Navbar from "./compo/header/Navbar";
+import NavTest from "./compo/header/Nav_test";
 import Subscribe from "./Pages/Subscribe/index";
 import Footer from "./compo/footer/index";
-import Show from './Pages/Show';
-import Movie from './Pages/MoviePage';
+import Show from "./Pages/Show/Show.jsx";
+import ShowsMain from "./Pages/Show/Shows_main.jsx";
+import Movie from "./Pages/Movie/Movie";
+import MoviesMain from "./Pages/Movie/Movies_main";
 
 import ScrollToTop from "./compo/ScrollToTop";
 
@@ -13,14 +16,15 @@ const Router = createBrowserRouter([
     path: "/",
     element: (
       <>
+      {/* <NavTest /> */}
         <Navbar />
         <Home />
-        <Footer/>
+        <Footer />
       </>
     ),
   },
   {
-    path: "subscribe",
+    path: "/subscribe",
     element: (
       <>
         <Subscribe />
@@ -28,24 +32,48 @@ const Router = createBrowserRouter([
     ),
   },
   {
-    path: "show/:userId",
+    path: "/show",
     element: (
       <>
-      <ScrollToTop />
+        <ScrollToTop />
+        <Navbar />
+        <ShowsMain />
+        <Footer />
+      </>
+    )
+  },
+  {
+    path: "/show/:userId",
+    element: (
+      <>
+        <ScrollToTop />
+        <Navbar />
         <Show />
         <Footer />
       </>
     ),
   },
   {
-    path: "movie/:userId",
+    path: "/movie",
     element: (
       <>
-      <ScrollToTop />
+        <ScrollToTop />
+        <Navbar />
+        <MoviesMain />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/movie/:userId",
+    element: (
+      <>
+        <ScrollToTop />
+        <Navbar />
         <Movie />
         <Footer />
       </>
     ),
-  }
+  },
 ]);
 export default Router;

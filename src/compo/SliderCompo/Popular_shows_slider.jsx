@@ -77,7 +77,7 @@ const Popular_shows_slider = ({title}) => {
               >
                 <ImageCompo
                   path={`/${key.type}/${key.id}`}
-                  ImgSrc={key.imgSrc}
+                  imgSrc={key.imgSrc}
                   title={key.Title}
                   category={key.category}
                   discription={key.discription}
