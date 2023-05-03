@@ -1,6 +1,6 @@
 # 👇 Live link 👇
 ```
-https://satyendracode.github.io/GreenBabu/
+https://hotstarclone-c6e74.firebaseapp.com/
 ```
 # Getting Started with Create React App
 
