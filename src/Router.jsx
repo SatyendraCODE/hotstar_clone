@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./Pages/home";
 import Navbar from "./compo/header/Navbar";
-import NavTest from "./compo/header/Nav_test";
 import Subscribe from "./Pages/Subscribe/index";
 import Footer from "./compo/footer/index";
 import Show from "./Pages/Show/Show.jsx";
