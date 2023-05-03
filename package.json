@@ -1,6 +1,6 @@
 {
-  "homepage": "https://satyendracode.github.io/Hotstart_clone/",
-  "name": "hotstar",
+  "homepage": "https://satyendracode.github.io/hotstar_clone",
+  "name": "hotstar_clone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
