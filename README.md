@@ -2,6 +2,10 @@
 ```
 https://hotstarclone-c6e74.firebaseapp.com/
 ```
+# Used Api
+```
+https://nervous-wrap-duck.cyclic.app/
+```
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
