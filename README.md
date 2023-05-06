@@ -2,6 +2,11 @@
 ```
 https://hotstarclone-c6e74.firebaseapp.com/
 ```
+# Login
+```
+username = admin
+password = 123
+```
 # Used Api
 ```
 https://nervous-wrap-duck.cyclic.app/
