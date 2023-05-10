@@ -25,9 +25,11 @@ const Navbar = () => {
     }
     document.querySelector(".searchDataContainr").style.display = "none";
   }, []);
+
   function noneLoginModel() {
     setDisplayLogin("none");
   }
+  
   const LogoutFun = () => {
     setisLogin(false);
     removeCookie("userid");
