@@ -1,79 +1,73 @@
 import React, { useState } from "react";
 import "./login.css";
 import { useCookies } from "react-cookie";
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import httpCommon from "../../database/http-common";
+import { USERS } from "../../database/Type";
+import { useRef } from "react";
 
 function Login(props) {
   const [isVisible, setIsVisible] = useState(false);
-  const [itIsMobileNum, setItIsMobileNum] = useState(false);
-  const [isPasswordInpVisible, setIsPasswordInpVisible] = useState(true);
-  const [message, setMessage] = useState("hy");
-  const [upUser, setUpUser] = useState({});
-  const [inputValue, setInputValue] = useState("");
+  // const [itIsMobileNum, setItIsMobileNum] = useState(false);
+  const itIsMobileNum = useRef(false);
 
-  const [cookies, setCookie] = useCookies([]);
+  const [isPasswordInpVisible, setIsPasswordInpVisible] = useState(true);
+  const [upUser, setUpUser] = useState({ username: "", password: "" });
+
+  // const [setCookie, removeCookie] = useCookies([]);
   const navigate = useNavigate();
 
   async function checkLogin() {
-    fetch(
-      `https://justjayapi.000webhostapp.com/login?username=${upUser.username}&password=${upUser.password}`
-    )
-      .then((res) => res.json())
+    await httpCommon
+      .get(`${USERS}?username=${upUser.username}&password=${upUser.password}`)
       .then((response) => {
-        if (response.Code == 1) {
-          // alert("success")
-          setCookie("userid", response.Data[0].id);
-          setCookie("username", response.Data[0].username);
-          // console.log(cookies)
-          if (response.Data[0].role_id == 1) {
-            navigate("/admin");
-          } else {
-            // navigate("/");
-            // alert("login")
-            props.noneLogin();
-            props.isLoginIn();
-            setCookie("login", true);
-            //####################### set cookie or state lift up for login ######################
-          }
+        document.cookie = `userid=${response.data[0].id}`;
+        document.cookie = `username=${response.data[0].username}`;
+
+        console.log(response.data[0].id, response.data[0].username);
+        if (response.data[0].id === 1) {
+          navigate("/admin");
         } else {
-          alert("invalid user");
+          props.noneLogin();
+          props.isLoginIn();
+          document.cookie = `login=true`;
+          console.log("ok1");
         }
+      })
+      .catch((error) => {
+        alert("invalid user");
       });
   }
 
   const handleClick = () => {
     setIsVisible(!isVisible);
   };
+
   function handleKeyDown(event, boolUser) {
-    if (itIsMobileNum && boolUser && event.key === "Enter") {
-      console.log("key down enter user");
+    if (itIsMobileNum.current && boolUser && event.key === "Enter") {
       setIsPasswordInpVisible(false);
-      console.log(upUser);
-      setItIsMobileNum(false);
-    } else if (itIsMobileNum && !boolUser && event.key === "Enter") {
-      console.log("key down enter pass");
-      // console.log(upUser);
-
+      itIsMobileNum.current = false;
+    } else if (itIsMobileNum.current && !boolUser && event.key === "Enter") {
       //########### here u can get password and mobile number and then call api to validate login ################
-
       checkLogin();
+      console.log("ok");
     }
   }
 
   const onChangeUsername = (e) => {
-    if(e.target.value===""){
-      setItIsMobileNum(false);
+    if (e.target.value === "") {
+      itIsMobileNum.current = false;
+    } else {
+      itIsMobileNum.current = true;
     }
-    else{
-      setItIsMobileNum(true);
-    }
-      setUpUser({ username: e.target.value });    
+    setUpUser({ ...upUser, username: e.target.value });
   };
 
   const validation_PassLogin = (e) => {
-    setItIsMobileNum(true);
+    itIsMobileNum.current = true;
     setUpUser({ ...upUser, password: e.target.value });
   };
+
   return (
     <>
       <div
@@ -82,7 +76,10 @@ function Login(props) {
         onClick={props.noneLogin}
       >
         {!isVisible && (
-          <div className="card-login position-relative" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="card-login position-relative"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="w-100">
               <div className="close" onClick={props.noneLogin}>
                 <i className="fa-solid fa-xmark"></i>
@@ -102,10 +99,9 @@ function Login(props) {
                     type="text"
                     name="username"
                     id=""
-                    // value={inputValue}
+                    value={upUser.username}
                     className="ph-nu-inp"
                     inputMode="numeric"
-                    // pattern="[0-9]*"
                     placeholder="Enter Your Username"
                     onKeyDown={(e) => handleKeyDown(e, true)}
                     onChange={onChangeUsername}
@@ -126,10 +122,8 @@ function Login(props) {
                     name=""
                     id=""
                     value={upUser.password}
-                    // value={inputValue}
                     className="ph-nu-inp w-100 ps-1 mt-4"
                     inputMode="numeric"
-                    // pattern="[0-9]*"
                     placeholder="password"
                     onKeyDown={(e) => handleKeyDown(e, false)}
                     onChange={validation_PassLogin}
@@ -137,7 +131,6 @@ function Login(props) {
                 </div>
               </div>
             )}
-            {/* if mobile number present - end */}
           </div>
         )}
         {isVisible && (

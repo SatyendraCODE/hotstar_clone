@@ -25,10 +25,9 @@ const Latest_tranding_slider = ({ title }) => {
     httpCommon
       .get(Latest_Tranding)
       .then((response) => {
-        // console.log(response.data);
         setData(response.data);
       })
-      .catch((error)=> {
+      .catch((error) => {
         console.log(error);
       });
   };

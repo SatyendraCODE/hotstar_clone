@@ -5,32 +5,33 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Login from "../Login/Login";
 import { useLayoutEffect } from "react";
+import { useRef } from "react";
 
 const Navbar = () => {
   const [AnimationClass, setAnimationClass] = useState("");
   const [isLogin, setisLogin] = useState(false);
   const [displayLogin, setDisplayLogin] = useState("none");
-  const [cookies, setCookie, removeCookie] = useCookies([]);
+  const [cookies, removeCookie] = useCookies([]);
+  const [displayAccountDetails, setDisplayAccountDetails] = useState("");
 
   let isAnimationClassVisible = true;
 
   useLayoutEffect(() => {
-    // console.log(cookies.login);
     if (cookies.login) {
       setisLogin(true);
       console.log("nav lay called");
     }
   }, []);
-  function noneLoginModel() {
+
+  const noneLoginModel = () => {
     setDisplayLogin("none");
-  }
+  };
+
   const LogoutFun = () => {
     setisLogin(false);
     removeCookie("userid");
     removeCookie("username");
     removeCookie("login");
-    // setCookie('login', false);
-    console.log(cookies);
   };
 
   return (
@@ -87,7 +88,11 @@ const Navbar = () => {
             </div>
 
             <Link to="/" className="navbar-brand navLogoImg">
-              <img className="" src="./disney-hotstar-logo-dark.svg" />
+              <img
+                className=""
+                src="./disney-hotstar-logo-dark.svg"
+                alt="hotstart logo"
+              />
             </Link>
             <button
               className="navbar-toggler"
@@ -168,7 +173,7 @@ const Navbar = () => {
                   </div>
                 </li>
               </ul>
-              <form className="form-inline my-2 my-lg-0">
+              <form className="form-inline my-2 my-lg-0 align-items-center">
                 <div className="search-container right-element">
                   <input
                     className="input-open"
@@ -200,7 +205,11 @@ const Navbar = () => {
                     </div>
                   </div>
                 ) : (
-                  <div class="dropdown right-element user-profile ms-3 ">
+                  <div
+                    class="dropdown right-element user-profile ms-3 "
+                    // onMouseEnter={() => setDisplayAccountDetails("block")}
+                    // onMouseLeave={() => setDisplayAccountDetails("")}
+                  >
                     <a
                       class="dropdown-toggle d-flex align-items-center hidden-arrow"
                       href="#"
@@ -220,6 +229,9 @@ const Navbar = () => {
                     <ul
                       class="dropdown-menu dropdown-menu-end drop-ul-user"
                       aria-labelledby="navbarDropdownMenuAvatar"
+                      // style={{
+                      //   display: displayAccountDetails,
+                      // }}
                     >
                       <li>
                         <Link class="dropdown-item drop-a-user" to="profile">
