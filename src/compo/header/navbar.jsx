@@ -9,17 +9,13 @@ import { useLayoutEffect } from "react";
 import axios from "axios";
 
 const Navbar = () => {
-  const [AnimationClass, setAnimationClass] = useState("");
   const [isLogin, setisLogin] = useState(false);
   const [displayLogin, setDisplayLogin] = useState("none");
-  const [cookies, setCookie, removeCookie] = useCookies([]);
+  const [cookies, removeCookie] = useCookies([]);
   const [inpValSrc, setinpValSrc] = useState("");
   const [dataSrcInp, setdataSrcInp] = useState([]);
 
-  let isAnimationClassVisible = true;
-
   useLayoutEffect(() => {
-    // console.log(cookies.login);
     if (cookies.login) {
       setisLogin(true);
     }
@@ -29,24 +25,20 @@ const Navbar = () => {
   function noneLoginModel() {
     setDisplayLogin("none");
   }
-  
+
   const LogoutFun = () => {
     setisLogin(false);
     removeCookie("userid");
     removeCookie("username");
     removeCookie("login");
-    // setCookie('login', false);
-    // console.log(cookies);
   };
 
   const hanldeSrcChange = async (e) => {
     let searchDataContainer = document.querySelector(".searchDataContainr");
     if (!e.target.value) {
       searchDataContainer.style.display = "none";
-      // console.log("if ",e.target.value);
     } else {
       searchDataContainer.style.display = "block";
-      // console.log("else ",e.target.value);
     }
     setinpValSrc(e.target.value);
     let dataShows;
@@ -136,12 +128,15 @@ const Navbar = () => {
                 </div>
               </Link>
             </div> */}
-            <div className="d-flex" style={{"flex-grow": 1}}>
+            <div className="d-flex" style={{ "flex-grow": 1 }}>
               <Link to="/" className="navbar-brand navLogoImg">
                 <img alt="logo" src={logo} />
               </Link>
               <ul className="d-flex m-0 mr-auto ms-3 p-0">
-                <li className="d-flex align-items-center" style={{ listStyle: "none" }}>
+                <li
+                  className="d-flex align-items-center"
+                  style={{ listStyle: "none" }}
+                >
                   <div>
                     <Link className="text-color-a arncherInList" to="/show">
                       Shows <span className="sr-only">(current)</span>
@@ -179,7 +174,10 @@ const Navbar = () => {
                     </div>
                   </div>
                 </li>
-                <li className="d-flex align-items-center"  style={{ listStyle: "none" }}>
+                <li
+                  className="d-flex align-items-center"
+                  style={{ listStyle: "none" }}
+                >
                   <div>
                     <Link className="text-color-a arncherInList" to="/movie">
                       Movies

@@ -1,19 +1,17 @@
 import React, { useLayoutEffect } from "react";
-import axios from "axios";
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import { Shows } from "../../database/db.jsx";
-import {responsive} from './Responsive.js'
-import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx"
+import { responsive } from "./Responsive.js";
+import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx";
 import { handleHoverAnimation } from "./HandleHoverAnimation.js";
 import { useState } from "react";
 import httpCommon from "../../database/http-common.jsx";
 import { Shows } from "../../database/Type.js";
 const ImageCompo = React.lazy(() => import("./ImageCompo.jsx"));
 
-const Popular_shows_slider = ({title}) => {
+const Popular_shows_slider = ({ title }) => {
   const [data, setData] = useState([]);
   let isSliderVisited = true;
 
@@ -27,7 +25,7 @@ const Popular_shows_slider = ({title}) => {
         // console.log(response.data);
         setData(response.data);
       })
-      .catch((error)=> {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -66,13 +64,13 @@ const Popular_shows_slider = ({title}) => {
                   isSliderVisited = true;
                   // e.currentTarget.firstElementChild.classList.remove("hoverLeft-slider");
                   // e.currentTarget.firstElementChild.classList.remove("hover-slider");
-                  setTimeout(()=>{
-                    if(isSliderVisited){
-                    a.remove("hoverLeft-slider");
-                    a.remove("hoverRight-slider");
-                    a.remove("hover-slider");
+                  setTimeout(() => {
+                    if (isSliderVisited) {
+                      a.remove("hoverLeft-slider");
+                      a.remove("hoverRight-slider");
+                      a.remove("hover-slider");
                     }
-                  }, 600)
+                  }, 600);
                 }}
               >
                 <ImageCompo

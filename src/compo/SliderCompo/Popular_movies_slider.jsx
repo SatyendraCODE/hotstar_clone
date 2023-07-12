@@ -1,10 +1,8 @@
 import React, { useLayoutEffect } from "react";
-import axios from "axios";
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import { Movies } from "../../database/db.jsx";
 import { responsive } from "./Responsive.js";
 import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx";
 import { handleHoverAnimation } from "./HandleHoverAnimation.js";
@@ -24,11 +22,10 @@ const Popular_movies_slider = ({ title }) => {
     httpCommon
       .get(Movies)
       .then((response) => {
-        // console.log(response.data);
         setData(response.data);
       })
-      .catch((error)=> {
-        console.log(error);
+      .catch((error) => {
+        console.error(error);
       });
   };
 

@@ -6,7 +6,6 @@ import { Carousel_data } from "../database/Type";
 const Carousel = () => {
   const [arrow, setArrow] = useState(0);
   const [data, setData] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(true);
   const navigate = useNavigate();
 
   useLayoutEffect(() => {
@@ -17,12 +16,10 @@ const Carousel = () => {
     httpCommon
       .get(Carousel_data)
       .then((response) => {
-        // console.log(response.data);
         setData(response.data);
-        setIsLoaded(false);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 

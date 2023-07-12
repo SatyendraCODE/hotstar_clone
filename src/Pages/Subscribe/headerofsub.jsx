@@ -3,11 +3,9 @@ import React, { useState } from "react";
 import {
   MDBContainer,
   MDBNavbar,
-  MDBNavbarBrand,
   MDBNavbarToggler,
   MDBIcon,
   MDBNavbarNav,
-  MDBBtn,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -23,15 +21,13 @@ export default function App() {
   const [showBasic, setShowBasic] = useState(false);
   const [displayLogin, setDisplayLogin] = useState("none");
   const [isLogin, setisLogin] = useState(false);
-  const [cookies, setCookie, removeCookie] = useCookies([]);
+  const [cookies, removeCookie] = useCookies([]);
 
-  useLayoutEffect(()=>{
-    // console.log(cookies.login);
-    if(cookies.login){
-      setisLogin(true)
-      console.log("header lay called");
+  useLayoutEffect(() => {
+    if (cookies.login) {
+      setisLogin(true);
     }
-  },[])
+  }, []);
 
   function noneLoginModel() {
     setDisplayLogin("none");
@@ -42,8 +38,6 @@ export default function App() {
     removeCookie("userid");
     removeCookie("username");
     removeCookie("login");
-    // setCookie('login', false);
-    console.log(cookies);
   };
 
   return (

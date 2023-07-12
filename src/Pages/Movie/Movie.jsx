@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
-import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
+import { Link, useParams } from "react-router-dom";
+import { MDBIcon } from "mdb-react-ui-kit";
 import httpCommon from "../../database/http-common.jsx";
-import { Movies, Shows } from "../../database/Type.js";
+import { Movies } from "../../database/Type.js";
 
 const initial_val = {
   id: "none",
@@ -31,11 +31,10 @@ const Movie = () => {
     await httpCommon
       .get(`${Movies}/${userId}`)
       .then((response) => {
-        // console.log(response.data);
         setData(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -47,11 +46,7 @@ const Movie = () => {
             className="position-absolute container p-0 "
             style={{ height: "550px", overflow: "hidden" }}
           >
-            <img
-              src={data.largeImgSrc}
-              className="img-fluid"
-              alt="large image"
-            />
+            <img src={data.largeImgSrc} className="img-fluid" alt="large" />
           </div>
           <div
             className="row justify-content-between position-relative"
@@ -151,6 +146,7 @@ const Movie = () => {
               }}
             >
               <iframe
+                title="iframe"
                 style={{
                   width: "600px",
                   "min-height": "289px",

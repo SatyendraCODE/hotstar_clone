@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import "./login.css";
 import { useCookies } from "react-cookie";
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 function Login(props) {
   const [isVisible, setIsVisible] = useState(false);
   const [itIsMobileNum, setItIsMobileNum] = useState(false);
   const [isPasswordInpVisible, setIsPasswordInpVisible] = useState(true);
-  const [message, setMessage] = useState("hy");
   const [upUser, setUpUser] = useState();
-  const [inputValue, setInputValue] = useState("");
 
-  const [cookies, setCookie] = useCookies([]);
+  const [setCookie] = useCookies([]);
   const navigate = useNavigate();
 
   async function checkLogin() {
@@ -20,13 +18,10 @@ function Login(props) {
     )
       .then((res) => res.json())
       .then((response) => {
-        if (response.Code == 1) {
-          // alert("success")
-          //   let abc= dispatch(loginUsers(form.username,form.password))
-          // dispatch(loginUsers(response.Data));
+        if (response.Code === 1) {
           setCookie("userid", response.Data[0].id);
           setCookie("username", response.Data[0].username);
-          if (response.Data[0].role_id == 1) {
+          if (response.Data[0].role_id === 1) {
             navigate("/admin");
           } else {
             navigate("/");
@@ -35,7 +30,6 @@ function Login(props) {
           alert("invalid user");
         }
       });
-    // console.log(abc);
   }
 
   const handleClick = () => {
@@ -43,12 +37,8 @@ function Login(props) {
   };
   function handleKeyDown(event, boolUser) {
     if (itIsMobileNum && boolUser && event.key === "Enter") {
-      console.log("key down enter user");
       setIsPasswordInpVisible(false);
-      console.log(upUser);
     } else if (itIsMobileNum && !boolUser && event.key === "Enter") {
-      console.log("key down enter pass");
-
       //########### here u can get password and mobile number and then call api to validate login ################
       checkLogin();
     }
@@ -62,14 +52,11 @@ function Login(props) {
     if (array.length === 10) {
       setItIsMobileNum(true);
       setUpUser({ mobile_Num: e.target.value });
-      // console.log('lenght 10 called');
     } else if (array.length < 10) {
       setItIsMobileNum(false);
-      // console.log('lenght other then called');
     }
     if (array.length === 11) {
       e.target.value = e.target.value.slice(0, 10);
-      // console.log('slice called');
     }
   };
 

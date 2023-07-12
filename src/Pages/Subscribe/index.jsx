@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./Subscribe.css";
 import Header from "./headerofsub";
 
-import { Component } from 'react';
-
 const Subscribe = () => {
   const [check_mark, setCheck_mark] = useState(true);
   const [check_mark_primium, setCheck_mark_primium] = useState(true);
@@ -27,8 +25,8 @@ const Subscribe = () => {
   const [scrollVisible, setScrollVisible] = useState(
     "scrolleble-box-mouseLeave-sub"
   );
-const [productName, setProductName] = useState("SUPER");
-const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
+  const [productName, setProductName] = useState("SUPER");
+  const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"];
 
   const setSuperTheme = () => {
     setProductName(SUPER);
@@ -44,9 +42,7 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
     setPremiumPriceColor1((color) => (color = ""));
     setPremiumPriceColor2((color) => (color = ""));
 
-    setCheck_mark((c)=> (c= true));
-
-    // console.log("blue");
+    setCheck_mark((c) => (c = true));
   };
   const setPrimiumTheme1 = () => {
     setProductName(PRIMIUM);
@@ -63,10 +59,8 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
     setSuperPrice((color) => (color = ""));
     setSuperPriceColor((color) => (color = ""));
 
-    setCheck_mark_primium((c)=> (c= true));
-    setCheck_mark((c)=> (c= false));
-
-    // console.log("black");
+    setCheck_mark_primium((c) => (c = true));
+    setCheck_mark((c) => (c = false));
   };
   const setPrimiumTheme2 = () => {
     setProductName(PRIMIUM);
@@ -83,19 +77,12 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
     setSuperPrice((color) => (color = ""));
     setSuperPriceColor((color) => (color = ""));
 
-    setCheck_mark_primium((c)=> (c= false));
-    setCheck_mark((c)=> (c= false));
-
-    // console.log("black");
+    setCheck_mark_primium((c) => (c = false));
+    setCheck_mark((c) => (c = false));
   };
   return (
     <>
-      <Header/>
-
-      {/* <div className="animation-container">
-        <div className="animation-moving-up"></div>
-      </div> */}
-
+      <Header />
       <div className={`container-fluid h-100 bg-sub pb-3`}>
         <h4 className="h4-title-sub">
           Subscribe to watch all content on Disney+ Hotstar
@@ -104,8 +91,7 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
           <div className="row">
             <div className="col-12" style={{ "padding-right": "15px" }}>
               <div className="d-flex justify-center ">
-                <div className="pt-3 pb-2" style={{ width: "60%" }}>
-                </div>
+                <div className="pt-3 pb-2" style={{ width: "60%" }}></div>
                 <div
                   className={`mid text-center pt-3 pb-2 color-cell-box-sub ${SuperTitle}`}
                   style={{ width: "20%" }}
@@ -114,7 +100,7 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
                 </div>
                 <div
                   className={`mid text-center pt-3 pb-2 color-cell-box-sub ${PremiumTitle}`}
-                  style={{ width: "20%" }} 
+                  style={{ width: "20%" }}
                 >
                   Premium
                 </div>
@@ -215,7 +201,7 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
                     className={`pt-2 pb-2  text-center color-cell-box-sub border-bottom-sub ${SuperContant}`}
                     style={{ width: "20%" }}
                   >
-                   2
+                    2
                   </div>
                   <div
                     className={`pt-2 pb-2  text-center color-cell-box-sub border-bottom-sub ${PremiumContant}`}
@@ -285,7 +271,11 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
                 <span className="price-btn-sub">899</span>
                 <span className="time-btn-sub">/Year</span>
               </p>
-              <i className={`fa-solid fa-check poi-ab ${check_mark ? "check-mark" : "check-mark-hidden"}`}></i>
+              <i
+                className={`fa-solid fa-check poi-ab ${
+                  check_mark ? "check-mark" : "check-mark-hidden"
+                }`}
+              ></i>
             </button>
 
             <button
@@ -298,7 +288,15 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
                 <span className="price-btn-sub">1499</span>
                 <span className="time-btn-sub">/Year</span>
               </p>
-              <i className={`fa-solid fa-check poi-ab ${!check_mark ? (check_mark_primium ?"check-mark":"check-mark-hidden") : "check-mark-hidden"}`}></i>
+              <i
+                className={`fa-solid fa-check poi-ab ${
+                  !check_mark
+                    ? check_mark_primium
+                      ? "check-mark"
+                      : "check-mark-hidden"
+                    : "check-mark-hidden"
+                }`}
+              ></i>
             </button>
 
             <button
@@ -311,7 +309,15 @@ const [SUPER, PRIMIUM] = ["SUPER", "PRIMIUM"]
                 <span className="price-btn-sub">299</span>
                 <span className="time-btn-sub">/Month</span>
               </p>
-              <i className={`fa-solid fa-check poi-ab ${!check_mark ? (!check_mark_primium ?"check-mark":"check-mark-hidden") : "check-mark-hidden"}`}></i>
+              <i
+                className={`fa-solid fa-check poi-ab ${
+                  !check_mark
+                    ? !check_mark_primium
+                      ? "check-mark"
+                      : "check-mark-hidden"
+                    : "check-mark-hidden"
+                }`}
+              ></i>
             </button>
           </div>
           <button className="w-100 btn-con mt-1 mb-4">

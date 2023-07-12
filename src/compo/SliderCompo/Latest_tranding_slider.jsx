@@ -1,15 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import { Latest_Tranding } from "../../database/db.jsx";
 import { responsive } from "./Responsive.js";
 import { CustomRightArrow, CustomLeftArrow } from "./arrows/Arrow.jsx";
 import { handleHoverAnimation } from "./HandleHoverAnimation.js";
 import { useState } from "react";
 import { useLayoutEffect } from "react";
-import axios from "axios";
 import httpCommon from "../../database/http-common.jsx";
 import { Latest_Tranding } from "../../database/Type.js";
 const ImageCompo = React.lazy(() => import("./ImageCompo.jsx"));
@@ -25,11 +23,10 @@ const Latest_tranding_slider = ({ title }) => {
     httpCommon
       .get(Latest_Tranding)
       .then((response) => {
-        // console.log(response.data);
         setData(response.data);
       })
-      .catch((error)=> {
-        console.log(error);
+      .catch((error) => {
+        console.error(error);
       });
   };
   return (

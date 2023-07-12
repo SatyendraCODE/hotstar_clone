@@ -1,10 +1,7 @@
-import React, { Suspense, useEffect, useLayoutEffect, useState } from "react";
+import React, { Suspense, useLayoutEffect, useState } from "react";
 import httpCommon from "../../database/http-common";
 import { Movies } from "../../database/Type.js";
 import { handleHoverAnimation } from "../../compo/SliderCompo/HandleHoverAnimation";
-// const ImageCompo = React.lazy(() =>
-//   import("../../compo/SliderCompo/ImageCompo")
-// );
 import ImageCompo from "../../compo/SliderCompo/ImageCompo";
 
 const Movies_main = () => {
@@ -14,18 +11,17 @@ const Movies_main = () => {
 
   useLayoutEffect(() => {
     fetchDataFromApi();
-  },[]);
-  
+  }, []);
+
   const fetchDataFromApi = () => {
     httpCommon
       .get(Movies)
       .then((response) => {
-        // console.log(response.data);
         setData(response.data);
         setIsLoaded(false);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -37,7 +33,6 @@ const Movies_main = () => {
             className="d-flex p-1 flex-wrap justify-content-center"
             style={{ gap: "10px" }}
           >
-            {/* <li style={{textDecoration: "none", listStyle:"none"}} onMouseEnter={()=>console.log("mouse enter")}>hy</li> */}
             {isLoaded ? (
               <div className="img-fallback-lazy-slider-home">
                 <i className="fas fa-arrows-rotate"></i>

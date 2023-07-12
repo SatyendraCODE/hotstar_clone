@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useLayoutEffect, useState } from "react";
+import React, { Suspense } from "react";
 
 import "./slider.css";
 
@@ -15,7 +15,6 @@ const LazyLoaderCompo = () => {
 };
 
 const Index = () => {
-  
   return (
     <>
       <Suspense fallback={<LazyLoaderCompo />}>
