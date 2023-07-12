@@ -4,8 +4,8 @@ https://hotstarclone-c6e74.firebaseapp.com/
 ```
 # Login
 ```
-username = admin
-password = 123
+username = satyendrasinh
+password = 12345
 ```
 # Used Api
 ```
