@@ -1,6 +1,6 @@
 # 👇 Live link 👇
 ```
-https://hotstarclone-c6e74.firebaseapp.com/
+[https://hotstarclone-c6e74.firebaseapp.com/](https://hotstarclone-c6e74.firebaseapp.com/)
 ```
 # Login
 ```
