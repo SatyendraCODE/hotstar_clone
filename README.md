@@ -1,12 +1,13 @@
 # 👇 Live link 👇
 
 [https://hotstarclone-c6e74.firebaseapp.com/](https://hotstarclone-c6e74.firebaseapp.com/)
-
+<!--
 # Login
 ```
 username = satyendrasinh
 password = 12345
 ```
+-->
 # Used Api
 ```
 https://nervous-wrap-duck.cyclic.app/
